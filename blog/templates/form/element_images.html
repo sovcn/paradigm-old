@@ -1,0 +1,18 @@
+<a onclick="return false;" style="margin-left: 10px;" id="add_image_link" href="">Upload New</a>
+<div class="spacer">
+	<input id="id_image_hidden" type="hidden" name="image_hidden" value ="{{value}}" />
+	<div id="primary_image_drop">
+		{% if image != None %}
+		   <img src="{{ image.thumbnail_medium }}" alt="{{ image.caption }}" />
+		{% else %}
+			Drop Here
+		{% endif %}
+	</div>
+	<div id="id_images" name="images" class="form-basic-image-container">
+	{% for image in images %}
+		<span id="form-image-container-{{image.pk}}" class="form-images-container">
+			<img id="form-image-{{image.pk}}" class="form-images-draggable" src="{{ image.thumbnail_medium }}" alt="{{ image.caption }}" />
+		</span>
+	{% endfor %}
+	</div>
+</div>

@@ -1,0 +1,21 @@
+<div class="sub_project">
+            <div class="home_project">
+                <span class="project_type">Project</span>
+                <a href="/project/{{ project.slug }}"><span class="project_title">{{ project.title }}</span></a>
+                <a href="/project/{{ project.slug }}"><img class="project_image" src="/static/images/projects/{{ project.slug }}/image_med.jpg" alt="{{ project.alt }}" /></a>
+                <div class="project_info">
+                    <div>
+                        <span class="label">Date:</span>
+                        <span class="content">{{ project.date }}</span>
+                    </div>
+                    <div>
+                        <span class="label">Tools:</span>
+                        <span class="content">{{ project.tools }}</span>
+                    </div>
+                </div>
+            </div>
+            {% block images %}
+            
+            {% endblock %}
+        </div>
+<div class="hr"></div>

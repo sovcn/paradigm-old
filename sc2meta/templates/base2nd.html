@@ -1,0 +1,83 @@
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}"
+    xml:lang="{% firstof LANGUAGE_CODE 'en' %}"
+    lang="{% firstof LANGUAGE_CODE 'en' %}">
+  <head>
+    <title>{% block title %}{% endblock %} - Starcraft Metagame Central</title>
+    
+    <link href="/static/styles/main.css" style="text/css" rel="stylesheet" />
+    
+    {% block css %}
+    {% endblock %}
+
+    {% block preload_js %}
+    {% endblock %}
+
+    {% block extra-head %}{% endblock %}
+  </head>
+
+  <body>
+    <div id="top_contain">
+		<div id="header">
+			<div id="header_left">
+				<div id="nav">
+					<a href="/">HOME</a>
+					<a href="/content/about">ABOUT</a>
+					<a href="/">STRATEGIES</a>
+					<a href="/">FORUMS</a>
+					<a href="/">STATS</a>
+					<a href="/">EVENTS</a>
+				</div>
+				<div id="login_bar">
+					{% if user.is_authenticated %}
+						<div class="terran"></div><div class="protoss"></div><div class="zerg"></div>
+                        <div class="username">{{ user.username }}</div><div class="sep"></div>
+					{% else %}
+						Welcome, guest.  Please <a href="/accounts/login">Login</a> | <a href="/accounts/register">Register</a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="content_contain">
+		<div id="left_contain">
+		    <div class="box_contain">
+		        <div class="header">latest matches</div>
+		           <div class="bg"></div>
+		           <div class="bottom"></div>
+		   </div>
+		</div>
+		    
+		    <div id="center_contain">
+		   				   {% block content-header %}
+					          {% if error %}<div class="error">{{ error }}</div>{% endif %}
+					          {% if info %}<div class="info">{{ info }}</div>{% endif %}
+					          {% if messages %}
+					            {% for message in messages %}
+					              <div class="info">{{ message }}</div>
+					            {% endfor %}
+					          {% endif %}
+					        {% endblock %}
+		    	<div class="main_contain">
+		    		{% block content %}{% endblock %}
+		        </div>
+		    </div>
+		    
+		    <div id="right_contain">
+		        <div class="box_contain">
+		                <div class="header">latest matches</div>
+		                <div class="bg"></div>
+		                <div class="bottom"></div>
+		        </div>
+		    </div>
+		    <br style="clear:both;" />
+		    <div id="footer"></div>
+		</div>
+
+    {% block js %}
+    {% endblock %}
+  </body>
+</html>

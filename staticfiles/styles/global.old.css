@@ -1,0 +1,150 @@
+/* 
+    Document   : global
+    Created on : Jul 19, 2009, 10:04:31 PM
+    Author     : Kelly
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+
+Colors:
+
+#a69577  -  Tan/Gold
+#535353  -  Dark Grey
+#334d5c  - Dark Blue
+
+
+*/
+
+root { 
+    display: block;
+}
+
+div{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    text-align: center;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    color: #979797;
+}
+
+div#container{
+    margin: auto;
+    width: 810px;
+    background-image: url(../images/header.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    text-align: left;
+}
+
+
+div#header{
+    height: 188px;
+    width: 810px;
+}
+
+div#footer{
+    width: 810px;
+    height: 188px;
+    background-image: url(../images/footer.png);
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+div#content{
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 600px;
+    text-align: left;
+}
+
+div#top_nav{
+    float: right;
+    width: 400px;
+    height: 20px;
+    margin-top: 55px;
+    text-align: right;
+    margin-right: 35px;
+}
+
+div.nav a{
+    color: #878787;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+div#bottom_nav{
+    width: 400px;
+    height: 20px;
+    text-align: center;
+    margin: auto;
+    margin-top: 16px;
+}
+
+div#top_info{
+    color: #475f6d;
+    font-size: 10px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    clear: both;
+    float: right;
+    width: 400px;
+    margin-top: 3px;
+    text-align: right;
+    margin-right: 25px;
+}
+
+p.content{
+    line-height: 16px;
+    width: 600px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+p.content span.content_emph{
+    color: #a69577;
+}
+
+div.hr{
+    height: 1px;
+    width: 650px;
+    margin: auto;
+    border-top: 1px solid #201c1b;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+div.news_info{
+    color: #535353;
+    text-align: right;
+    line-height: 16px;
+    margin-top: 8px;
+}
+
+div.news_info span.name{
+    color: #80725c;
+}
+
+div.news_info span.date{
+    color: #334d5c;
+}
+
+h1.news_title{
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #a69577;
+}

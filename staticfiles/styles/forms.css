@@ -1,0 +1,160 @@
+body {
+}
+
+div.basic-form-container{
+	background: white;
+	padding: 10px;
+	margin: 5px;
+	margin-top: 3px;
+	margin-bottom: 3px;	
+}
+
+form.basic-form a{
+	color: #566FA7;
+}
+
+form.basic-form div.spacer{
+	margin-top: 5px;
+	overflow: visible;
+}
+
+form.basic-form {
+	font-size: 15px;
+	margin-top: 10px;
+}
+div.form-basic-element {
+	margin-top: 25px;
+	margin-left: 10px;
+	overflow: visible;
+}
+div.form-submit-element{
+	clear: both;
+	margin-bottom: 10px;
+	margin-right: 20px;
+	text-align: right;
+}
+
+legend.basic-legend{
+	padding: 5px;
+	margin-left: 5px;
+}
+
+input.basic-form-text-input{
+	width: 500px;
+	height: 30px;
+	padding-left: 3px;
+	font-size: 16px;
+}
+input.basic-form-text-input-labeled{
+	color: #AAAAAA;
+}
+
+ol.multi-select, ol.multi-select li{
+	list-style-type: none;	
+}
+
+div.form-basic-element label{
+	font-weight: bold;	
+}
+
+div.form-basic-image-container{
+	overflow: visible;
+	background: white;
+	border: 1px solid #566FA7;
+	height: 220px;
+}
+
+span.form-images-container{
+	overflow: visible;
+	z-index: 11;
+	width: 100px;
+	height: 100px;
+	display: block;
+	float: left;
+	margin-left: 5px;
+	margin-top: 5px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+img.form-images-draggable{
+	overflow: visible;
+	z-index: 11;
+	vertical-align: middle;
+}
+
+div.jquery_dialog{
+	font-size: 12px;
+}
+div.jquery_dialog span{
+	width: 50px;
+	float: left;
+	display: block;
+	text-align: left;
+	margin-top: 3px;
+	margin-left: 10px;
+	font-size: 14px;
+}
+
+.ui-button, .ui-button-text{ font-size: .8em; }
+
+.selectable .ui-selecting {
+	background: #499BCC;
+	color: #F0F0F0;
+}
+.selectable .ui-selected {
+	background: #2779AA;
+	color: white;
+}
+.selectable {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.selectable li {
+	list-style-type: none;
+	margin: 3px;
+	padding: 0.4em;
+	font-size: 1.1em;
+	height: 18px;
+	width: 120px;
+	float: left;
+}
+
+div.el-rte div.toolbar{
+	overflow: visible;	
+}
+
+span.helptext-small{
+	font-size: .7em;
+	display: block;
+	clear: both;
+}
+
+ul.errorlist{
+	color: #FF0000;	
+}
+
+div#primary_image_drop{
+	width: 100px;
+	height: 100px;
+	padding: 2px;
+	text-align: center;
+	font-size: 16px;
+	border: 1px solid #566FA7;
+	color: #566FA7;
+	margin-bottom: 5px;
+}
+
+div#content_image_drop{
+	width: 100px;
+	height: 100px;
+	padding: 2px;
+	text-align: center;
+	font-size: 16px;
+	border: 1px solid #566FA7;
+	color: #566FA7;
+	margin-bottom: 5px;
+	margin-top: 3px;
+}

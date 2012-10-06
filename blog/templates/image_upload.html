@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block appendJS %}
+<script type="text/javascript" src="/static/js/jquery.jhtmlarea/scripts/jHtmlArea-0.7.0.js"></script>
+{% endblock %}
+
+{% block appendCSS %}
+<link rel="stylesheet" href="/static/js/jquery.jhtmlarea/style/jHtmlArea.css" style="text/css" />
+{% endblock %}
+
+{% block content %}
+<div class="generic_content">
+	<h1>{{ title }}</h1>
+	<div>
+		{{ error }}
+		{% load filetransfers %}
+		<form class="generic_form" action="{{ upload_url }}" method="POST" enctype="multipart/form-data">
+		    {% csrf_token %}
+		    {% render_upload_data upload_data %}
+			{{ form.as_p }}
+			<input type="submit" text="Upload" />
+		</form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script>
+	$(document).ready(function() {
+		$( "input:submit" ).button();
+		$( "input.jquery_datefield" ).datepicker();
+		$( "textarea.jquery_wysiwyg" ).htmlarea();
+	});
+</script>
+{% endblock %}

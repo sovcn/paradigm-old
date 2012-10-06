@@ -1,0 +1,83 @@
+{% extends 'admin_form.html' %}
+
+{% block appendJS %}
+	{{ block.super }}
+	<!-- Elrite Javascript -->
+	<script src="/static/elrte-1.3/js/elrte.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/elrte-1.3/js/i18n/elrte.en.js" type="text/javascript" charset="utf-8"></script>
+{% endblock %}
+
+{% block appendCSS %}
+	{{ block.super }}
+	<link rel="stylesheet" href="/static/elrte-1.3/css/elrte.min.css" type="text/css" media="screen" charset="utf-8">
+{% endblock %}
+
+{% block sub_right %}
+		<form id="cb_form" class="basic-form" method="POST">{% csrf_token %}
+			<fieldset>
+				<legend>{{ form.title_str }}</legend>
+				{% for field in form %}
+			        <div class="form-basic-element ui-helper-reset">
+			            {{ field.label_tag }} {{ field }} {{ field.errors }}
+			            <span class="helptext helptext-small">{{ field.help_text }}</span>
+			        </div>
+			    {% endfor %}
+				<div class="form-basic-element form-submit-element">
+					<input type="submit" text="Save" />
+				</div>
+			</fieldset>
+		</form>
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+<script type="text/javascript" src="/static/js/create_blog.js">
+</script>
+
+<script type="text/javascript">
+	$("document").ready(function(){
+		ibd.category.initialize_add_dialog("add_category_dialog", "add_category_link", "id_categories");
+		ibd.category.initalize_selectable("id_categories", "id_categories_hidden");
+		
+		$('div.form-basic-element .selectable').selectable();
+		
+		$('input.basic-form-text-input').label();
+		
+		$('#add_category_link').button({ icons: {primary:'ui-icon-plus'} });
+		$('#add_image_link').button({ icons: {primary:'ui-icon-image'} });
+
+		$('.form-images-draggable').draggable({containment: "document", revert: "invalid",
+					start: function(event, ui) {
+						$( "div#content_image_drop" ).show('highlight', {}, 500);
+					},
+					stop: function(event, ui){
+						$( "div#content_image_drop" ).hide();
+					}
+		});
+		
+
+		var opts = {
+			cssClass : 'el-rte',
+			lang     : 'en',
+			height : 450,
+			toolbar : 'complete',
+			cssfiles : ['/static/elrte-1.3/css/elrte-inner.css']
+		}
+		$('#id_text_wysiwyg').elrte(opts);
+		
+		$( "#primary_image_drop" ).droppable({
+			accept: ".form-images-draggable",
+			activeClass: "ui-state-hover",
+			drop: ibd.images.dropped_event
+		});
+		
+		$( "div#content_image_drop" ).droppable({
+			accept: ".form-images-draggable",
+			activeClass: "ui-state-hover",
+			drop: ibd.images.overwrite_elrte_image
+		});
+		$( "div#content_image_drop" ).hide();
+		
+	});
+</script>
+{% endblock %}

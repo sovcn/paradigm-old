@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load url from future %}
+
+{% block appendCSS %}
+<link href="/static/styles/forms.css" media="screen" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block appendJS %}
+<script type="text/javascript" src="/static/js/ui.form.js"></script>
+<script type="text/javascript" src="/static/js/forms.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="basic-form-container">
+<form id="cb_form" class="basic-form" style="width: 500px;" method="POST" action="{% url 'django.contrib.auth.views.login' %}">
+	{% csrf_token %}
+	<fieldset>
+		<legend>
+			Login
+		</legend>
+		
+		{% if form.errors %}
+		<div class="error">Your username and password didn't match. Please try again.</div>
+		{% endif %}
+		
+		<div class="form-basic-element ui-helper-reset">
+			{{ form.username.label_tag }} {{ form.username }} {{ form.username.errors }}
+		</div>
+		<div class="form-basic-element ui-helper-reset">
+			{{ form.password.label_tag }} {{ form.password }} {{ form.password.errors }}
+		</div>
+		<div style="text-align: left;" class="form-basic-element form-submit-element">
+			<input type="hidden" name="next" value="{{ next }}" />
+			<input type="submit" text="Save" />
+		</div>
+	</fieldset>
+</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'blog_base.html' %}
+
+{% block sub_right %}
+
+<div class="services_top">
+    <span>{{ title }}</span>
+    <p class="quote">{{ sub_title }}</p>
+</div>
+
+	<div class="generic_content candy_trail">
+		{{ candy_trail|safe }}
+	</div>
+	
+	<div class="generic_content">
+		
+		{{ image_code }}
+	
+	<h3>Blog posts which use image:</h3>
+		
+	{% for post in posts %}
+ 		<a href="/blog/{{ post.pk }}"><h2 class="blog_title">{{ post.title }}</h2></a>
+ 		<div class="blog_content">
+ 			<div><span>{{ post.author.displayName }} | {{ post.added }}</span></div>
+ 			<a href="/blog/{{ post.pk }}"><img src="{{ post.image_file.thumbnail }}" alt="{{ post.image_file.caption }}" align="left" /></a>
+ 			{{ post.description|safe }} <br /><a href="/blog/{{ post.pk }}">[ Read More ]</a>
+ 		</div>
+ 		<div style="margin-left: 0;" class="hr"></div>
+ 	{% endfor %}
+ 	</div>
+ 	
+{% endblock %}

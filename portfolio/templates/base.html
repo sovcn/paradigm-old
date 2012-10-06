@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://schema.org/{% block itemtype %}Blog{% endblock %}">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Kelly Smith | Innovation by Design | {% block title %}Home{% endblock %}</title>
+  
+  <meta property="og:title" content="Kelly Smith | {% block og_title %}Innovation by Design{% endblock %}" />
+  <meta property="og:type" content="{% block og_type %}website{% endblock %}"/>
+  <meta property="og:url" content="{% block og_url %}http://www.innobdesign.com{{request.get_full_path}}{% endblock %}"/>
+  <meta property="og:description" content="{% block og_description %}A personal portfolio and blog for Kelly Smith.{% endblock %}" />
+  <meta property="og:image" content="{% block og_image %}http://www.innobdesign.com/image/26001/200/200/{% endblock %}"/>
+  <meta property="fb:admins" content="1320511353"/>
+  <meta property="fb:app_id" content="114060846889" />
+  
+  <meta itemprop="name" content="Kelly Smith | {% block itemprop_name %}Innovation by Design{% endblock %}">
+  <meta itemprop="description" content="{% block itemprop_description %}A personal portfolio and blog for Kelly Smith.{% endblock %}">
+
+  <link href="/static/styles/reset.css" style="text/css" rel="stylesheet" />
+  <link href="/static/styles/global.css" style="text/css" rel="stylesheet" />
+  <link href="/static/jquery-ui-1.8.16.custom/css/cupertino/jquery-ui-1.8.16.custom.css" style="text/css" rel="stylesheet" />
+  
+  
+  {% block appendCSS %}
+  	<link href="/static/styles/home.css" style="text/css" rel="stylesheet" />
+  {% endblock %}
+  
+  <script type="text/javascript" src="/static/js/jquery-compressed.js"></script>
+  <script type="text/javascript" src="/static/jquery-ui-1.8.16.custom/js/jquery-ui-1.8.16.custom.min.js"></script>
+  
+  <script type="text/javascript" src="/static/js/general.js"></script>
+
+  <!-- appendJS -->
+  {% block appendJS %}
+  	<script type="text/javascript" src="/static/js/splash.js"></script>
+  {% endblock %}
+	
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27371188-1']);
+  _gaq.push(['_setDomainName', 'innobdesign.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<body>
+	<!-- Facebook Javascript API -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) {return;}
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=114060846889";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<!-- Google Plus Render Code-->
+	<script type="text/javascript">
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+	
+    <div id="container">
+        <div id="nav">
+            <a href="/" class="nav" id="nav_home"><span>HOME</span></a>
+            <a href="/about" class="nav" id="nav_about"><span>ABOUT ME</span></a>
+            <a href="/project/list" class="nav" id="nav_portfolio"><span>PORTFOLIO</span></a>
+            <a href="/project/list/research" class="nav" id="nav_research"><span>RESEARCH</span></a>
+            <a href="/blog" class="nav" id="nav_blog"><span>BLOG</span></a>
+            <img id="nav_right_logo" src="/static/images/nav_right.png" alt="Innovation By Design" />
+        </div>
+        
+        {% block banner %}
+        <div id="banner">
+            <a href="/"><img src="/static/images/banner.jpg" alt="" /></a>
+        </div>
+        {% endblock %}
+        
+        {% block content %}
+        {% endblock %}
+        
+        <div id="footer">
+            <a href="/">Home</a>
+            <a href="/project/list">Portfolio</a>
+            <a href="/blog">Blog</a>
+            <a href="/about">About Me</a>
+        </div>
+    </div>
+	
+	
+    {% block js %}
+  
+    {% endblock %}
+</body>
+</html>

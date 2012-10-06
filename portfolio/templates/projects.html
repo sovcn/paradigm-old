@@ -1,0 +1,43 @@
+{% extends 'portfolio/templates/base_subpage.html' %}
+
+{% block title %}Portfolio{% endblock %}
+{% block appendJS %}
+{{ block.super }}
+<script type="text/javascript">current_page_hover = "nav_portfolio";</script>
+{% endblock %}
+
+{% block sub_left %}
+<div style="height: 20px;"></div>
+   <div id="sub_nav_programming_dim" width="91px" height="87px" class="dims"></div>
+   <div id="sub_nav_design_dim" width="90px" height="79px" class="dims"></div>
+   <div id="sub_nav_research_dim" width="90px" height="79px" class="dims"></div>
+   <div id="sub_nav_links">
+       <h2>Portfolio</h2>
+       <a href="/project/list/programming">
+           <img class="sub_nav" width="86px" height="82px" id="sub_nav_programming" src="/static/images/sub_nav_programming.png" alt="Programming" />
+       </a>
+       <a href="/project/list/web-design">
+           <img class="sub_nav" width="79px" height="70px" id="sub_nav_design" src="/static/images/sub_nav_design.png" alt="Web Design" />
+       </a>
+       <a href="/project/list/research">
+           <img class="sub_nav" width="79px" height="70px" id="sub_nav_research" src="/static/images/sub_nav_research.png" alt="Research" />
+       </a>
+   </div>
+   <div style="height: 20px;"></div>
+   {% endblock %}
+   
+{% block sub_right %}
+	<div class="services_top">
+    <span>{{ page_title }}</span>
+	</div>
+	<div class="sub_content contact">
+	    {{ page_description }}
+	</div>
+	
+	<div class="hr"></div>
+	
+	{% for project in projects %}
+		{{ project }}
+	{% endfor %}
+	
+{% endblock %}

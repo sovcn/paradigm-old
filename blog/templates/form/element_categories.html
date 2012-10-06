@@ -1,0 +1,14 @@
+
+<a onclick="return false;" style="margin-left: 10px;" id="add_category_link" href="">Add New</a>
+<div class="spacer">
+	<input id="id_categories_hidden" type="hidden" name="categories_hidden" value ="{{value}}" />
+	<div id="add_category_dialog" class="jquery_dialog ui-helper-reset ui-widget" title="New Category">
+		<span>Slug</span> <input type="text" id="new_category" /><br />
+		<span>Name</span> <input type="text" id="new_category_name" />
+	</div>
+	<ol id="id_categories" name="categories" class="selectable multi-select">
+	{% for category in categories %}
+		<li class="ui-widget-content" id="cat_{{category.name}}">{{ category.label }}</li>
+	{% endfor %}
+	</ol>
+</div>

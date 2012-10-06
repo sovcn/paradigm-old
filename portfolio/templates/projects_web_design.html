@@ -1,0 +1,27 @@
+{% extends 'portfolio/templates/projects.html' %}
+
+{% block sub_right %}
+<div class="services_top">
+    <span>{{ page_title }}</span>
+	<p class="quote">{{ page_description }}</p>
+</div>
+
+<div class="generic_content">
+	   <p>In addition to my work with programming, I also design all of my own websites and interfaces.
+    	I have a strong, experiential knowledge of the entire process of bringing a website through the various development
+    	stages from start to finish.
+        </p>
+</div>
+
+
+<div class="hr"></div>
+
+
+<div class="generic_content">
+Below is a list of all the major projects that I have worked on which involve web design and implementation.
+</div>	
+	{% for project in projects %}
+		{{ project }}
+	{% endfor %}
+
+{% endblock %}

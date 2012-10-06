@@ -1,0 +1,39 @@
+{% extends 'portfolio/templates/base.html' %}
+
+{% block appendCSS %}
+<link rel="stylesheet" href="/static/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+<link href="/static/styles/sub.css" style="text/css" rel="stylesheet" />
+<link href="/static/styles/forms.css" media="screen" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block appendJS %}
+<script type="text/javascript" src="/static/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript" src="/static/js/sub_nav.js"></script>
+<script type="text/javascript" src="/static/js/ui.form.js"></script>
+<script type="text/javascript" src="/static/js/forms.js"></script>
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+{% block content %}
+<div id="sub_content">
+            <div id="sub_content_left">
+                {% block sub_left %}
+                {% endblock %}
+            </div>
+            <div id="sub_content_right">
+                {% block sub_right %}
+                {% endblock %}
+            </div>
+           
+        </div>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+	$('document').ready(function(){
+		$('a.fancy').fancybox();
+	});
+</script>
+{% endblock %}

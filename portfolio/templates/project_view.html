@@ -1,0 +1,33 @@
+{% extends 'portfolio/templates/projects.html' %}
+
+{% block og_type %}article{% endblock %}
+{% block itemtype %}Article{% endblock %}
+
+{% block og_title %}{{project.title}}{% endblock %}
+{% block title %}{{project.title}}{% endblock %}
+{% block itemprop_name %}{{project.title}}{% endblock %}
+
+
+{% block og_description %}{{project.description|safe}}{% endblock %}
+{% block itemprop_description %}{{project.description|safe}}{% endblock %}
+
+{% block og_image %}http://www.innobdesign.com/static/images/projects/{{ project.slug }}/image_med.jpg{% endblock %}
+
+{% block sub_right %}
+<div class="services_top project_top">
+    <span>{{ project.title }}</span>
+    <p class="quote">{{ project.date }} | {{ project.tools }}</p>
+</div>
+
+<div class="hr"></div>
+<div class="share_bar" style="margin-left: 15px;">
+	<div style="width: 80px; float: left; border-right: 1px solid #CCCCCC;"><g:plusone></g:plusone></div>
+	<div style="overflow: visible; width: 400px; float: left; margin-left: 0px;"><div style="overflow: visible;" class="fb-like" data-send="true" data-width="400" data-show-faces="false"></div></div>
+</div>
+<div class="hr"></div>
+
+{{ project.getInfo|safe }}
+
+{{ project }}
+
+{% endblock %}

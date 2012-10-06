@@ -1,0 +1,16 @@
+{% extends 'blog_base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block sub_right %}
+<div class="generic_content">
+	<h1>{{ title }}</h1>
+	<div>
+		{{ error }}
+		<form class="generic_form" method="POST">{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" text="Save" />
+		</form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'portfolio/templates/project_small.html' %}
+
+{% block images %}
+    <div class="home_project_pictures">
+        {{ project.renderImages|safe }}
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Edit Profile{% endblock %}
+
+{% block content %}
+<div class="main_content_box">
+	<div class="header">Edit Profile</div>
+	<div class="content">
+		{% if updated %}
+			<p>Your profile has been updated.</p>
+		{% endif %}
+		{{ error }}
+		{% load filetransfers %}
+		<form method="POST">
+			{% csrf_token %}
+			{% render_upload_data upload_data %}
+			{{ form.as_p }}
+			<input type="submit" text="Save" />
+		</form>
+    </div>
+    <div class="bottom"></div>
+</div>
+
+{% endblock %}

@@ -4,3 +4,4 @@
 local_settings.py
 /staticfiles/images/*
 /django
+/staticfiles/jquery*

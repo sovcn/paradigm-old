@@ -1,0 +1,52 @@
+{% extends 'portfolio/templates/projects.html' %}
+
+{% block appendJS %}
+{{ block.super }}
+<script type="text/javascript">current_page_hover = "nav_about";</script>
+{% endblock %}
+
+{% block sub_right %}
+<div class="services_top project_top">
+    <span>About Me</span>
+    <p class="quote">"Reality is a story the mind tells itself." - Doug Rattmann</p>
+</div>
+
+<div class="generic_content">
+<p>I am currently a student at Slippery Rock University in Pennsylvania
+pursuing a BSc with a dual major in Computer Science and Mathematics. I am {{ age }} years old
+with plans to graduate in May 2013.  I currently live in Slippery Rock, Pennsylvania, but I grew up out west
+in Bozeman, Montana. As I am writing this, I am spending a semester abroad at the University of Bradford 
+in Bradford, England.
+I will be returning to the US in late January to wrap up my Junior year of University.
+</p>
+<p>
+My current research project is <a href="/project/pics">PICS: Platform Independent Cloud Scripting</a>.
+It deals with spawning out chunks of code to a heterogeneous cloud of clients on various
+platforms.  I was recently accepted to present this research at the 2012 SIGCSE Conference in
+Raleigh, North Carolina on February 29, 2012.  In addition to PICS, I also have strong research
+interests in robotics, automated parallelism, artificial intelligence, and web technologies.
+<a href="/project/list/research">Click here</a> for more information about my research.</p>
+
+<p>
+In addition to my research and academic interests, I also have a strong interest in web application development
+and design.  Nearly every project that I have worked on has some aspect which involves
+a web application and more often than not a web design.  I specialize in creating content management frameworks
+in PHP and Python, and their corresponding web interfaces with HTML, CSS, and JavaScript.<br />
+<a href="/project/list">Click here</a> for more information about my projects.
+</p>
+
+<p>
+Outside of my computer-related interests I enjoy hiking, camping, fencing,
+traveling, rock climbing, boating, skiing, and photography (basically anything that gets me outside).
+I am also extremely interested in musical pursuits.  In my free time, I play guitar and listen
+ to music as often as I can - <a href="http://www.last.fm/user/sovcn">My Last.fm Profile</a>.
+Traveling is also very important to me, and I plan on spending as much time abroad as possible.
+</p>
+
+<p>My resume can be viewed here: <a href="http://granite.sru.edu/~kms3458/resume.pdf">resume.pdf</p>
+
+<p><img src="/static/images/me.jpg" alt="Kelly Smith" /></p>
+<div class="hr"></div>
+<div class="fb-comments" data-num-posts="5" data-width="500"></div>
+</div>
+{% endblock %}

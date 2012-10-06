@@ -1,0 +1,50 @@
+{% extends 'blog_base.html' %}
+
+{% block og_type %}article{% endblock %}
+{% block itemtype %}Article{% endblock %}
+
+{% block og_title %}{{post.title}}{% endblock %}
+{% block title %}{{post.title}}{% endblock %}
+{% block itemprop_name %}{{post.title}}{% endblock %}
+
+
+{% block og_description %}{{post.description|safe}}{% endblock %}
+{% block itemprop_description %}{{post.description|safe}}{% endblock %}
+
+{% block og_image %}{% if og_image %}{{og_image}}{% else %}{{block.super}}{% endif %}{% endblock %}
+
+{% block sub_right %}
+
+	<div class="generic_content candy_trail">
+		{{ candy_trail|safe }}
+	</div>
+	<div class="generic_content blog_content">
+		<div class="blog_title_left">
+			{% if post.image_file %}
+				<a href="/blog/{{ post.pk }}"><img style="padding-right: 15px; padding-bottom: 15px;" src="{{ post.image_file.thumbnail_small }}" alt="{{ post.image_file.caption }}" align="left" /></a>
+			{% endif %}
+		</div>
+		<div class="blog_title_right">
+			<a href="/blog/{{ post.pk }}"><h2 class="blog_title">{{ post.title }}</h2></a>
+			<div><span>{{ post.author.displayName }} | {{ post.added }}</span></div>
+		</div>
+	</div>
+	
+	<div class="hr"></div>
+	<div class="share_bar">
+		<div style="width: 80px; float: left; border-right: 1px solid #CCCCCC;"><g:plusone></g:plusone></div>
+		<div style="overflow: visible; width: 400px; float: left; margin-left: 0px;"><div class="fb-like" data-send="true" data-width="400" data-show-faces="false"></div></div>
+	</div>
+	<div class="hr"></div>
+	
+ 	<div style="clear:both;display: block;" class="generic_content blog_content">
+ 		{{ post.content_parsed|safe }}
+ 	</div>
+ 	<div style="margin-left: 0;" class="hr"></div>
+ 	<div class="fb-comments" data-num-posts="5" data-width="500"></div>
+ 	
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

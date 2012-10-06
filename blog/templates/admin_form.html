@@ -1,0 +1,15 @@
+{% extends 'generic-form.html' %}
+
+{% block sub_left %}
+<div class="admin_menu">
+	<h2>Blog Administration</h2>
+	<a class="admin_selected" href="/blog/create">Create Post</a>
+	<a class="admin_unselected" href="/blog/manage">Manage Posts</a>
+	<a class="admin_unselected" href="/image/upload">Upload Image</a>
+	<a class="admin_unselected" href="/blog/manage/tags">Manage Tags/Categories</a>
+
+	<h2>Portfolio Administration</h2>
+	<div class="admin_selected"><a href="/blog/create">Create Post</a></div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,284 @@
+
+div{
+    overflow: hidden;
+}
+
+div#fancybox-wrap, div#fancybox-outer{
+	overflow: visible;	
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    text-align: center;
+    background-color: #1f396e;
+    background-image: url(../images/background.png);
+    background-repeat: repeat-y;
+    background-position: center;
+    font-family: Calibri, Arial, Helvectia, "sans-serif";
+    
+}
+
+p{
+	margin-top: 5px;	
+}
+
+div#container{
+    margin: auto;
+    text-align: left;
+    width: 899px;
+}
+
+div#nav{
+    height: 49px;
+    width: 899px;
+    background-image: url(../images/nav_bar_back.png);
+    background-repeat: repeat-x;
+}
+a.nav{
+    display: block;
+    float: left;
+    width: 142px;
+    height: 49px;
+    background-image: url(../images/nav_back_hover.png);
+    background-repeat: no-repeat;
+    text-decoration: none;
+}
+a.nav_hover{
+    background-image: url(../images/nav_back.png);
+}
+
+a.nav span{
+    display: block;
+    font-size: 12px;
+    font-family: Arial, Helvectica, "sans-serif";
+    margin-top: 20px;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    width: 142px;
+    text-align: center;
+}
+
+#banner{
+    margin-left: 6px;
+}
+
+#nav_right_logo{
+    display: block;
+    float: right;
+    width: 161px;
+    height: 49px;
+}
+
+
+
+div#footer{
+    height: 20px;
+    background-image: url(../images/footer_back.gif);
+    background-repeat: repeat-x;
+    margin-left: 1px;
+    margin-top: 3px;
+    line-height: 11px;
+}
+
+div#footer a{
+    font-size: 11px;
+    color: #9c9c9c;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+div.hr{
+    width: 98%;
+    height: 1px;
+    border-top: 1px solid #d6dbe8;
+    margin: auto;
+    clear: both;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+ul.errors{
+    color: #FF0000;
+    font-size: 12px;
+}
+
+textarea{
+    vertical-align: top;
+}
+
+span.error{
+    color: #FF0000;
+}
+
+span.success{
+    color: #2fb82a;
+}
+
+/* Generic Styles */
+/*  Begin Non Template Styles */
+form.generic_form{
+	margin-left: 20px;
+}
+
+form.generic_form ul.errorlist{
+	display: block;
+	color: #FF0000;
+	margin-top: 30px;
+	margin-bottom: 0;
+}
+
+form.generic_form p{
+	clear: both;
+	margin-top: 10px;
+	margin-top: 20px;
+}
+
+form.generic_form p label{
+	display: block;
+	width: 150px;
+	float: left;
+	font-size: 16px;
+}
+form.generic_form p input{
+	border: 1px solid #255b91;
+	font-size: 18px;
+}
+
+span.helptext{
+	color: #777777;
+}
+
+span.ui-button-text, input.ui-button{
+	font-size: 12px;
+}
+
+form.generic_form textarea{
+	width: 500px;
+	height: 500px;
+	border: 1px solid #000000;	
+}
+
+
+div.generic_content{
+	padding: 10px;
+	background: #FFFFFF;
+	margin-left: 6px;
+	margin-right: 7px;
+	margin-top:4px;
+	margin-bottom: 2px;
+	text-align: left;
+}
+
+div.white_box{
+ border: 1px solid #CCCCCC;
+ margin-top: 15px;
+ margin-left: 10px;	
+}
+
+div.generic_content h1, div.generic_content h2, div.generic_content h3{
+	margin-top: 10px;
+	margin-bottom: 15px;
+	font-weight: bold;
+}
+
+div.generic_content h1{
+	font-size: 22px;
+	letter-spacing: 2px;
+	color: #444444;
+	font-weight: normal;
+}
+
+div.generic_content h2{
+	font-weight: normal;
+	color: #2e55a3;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+div.generic_content h3{
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+
+div.generic_content p, div.generic_content ul, div.generic_content ul > li, div.generic_content table{
+	margin: 10px;
+	font-size: 14px;	
+}
+
+div.generic_content ul{
+	margin-left: 25px;	
+}
+
+div.generic_content li{
+	list-style-type:square;
+}
+
+div.generic_content p{
+	margin-top: 15px;
+	margin-bottom: 15px;	
+	line-height: 18px;
+}
+
+div.generic_content div{
+	margin: 10px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	overflow: visible;
+}
+
+div.generic_content > table{
+	border: 1px solid #CCCCCC;	
+}
+
+div.generic_content td{
+	padding: 10px;
+	border: 1px solid #CCCCCC;
+}
+
+div.generic_content th{
+	padding: 10px;
+	border: 1px solid #CCCCCC;
+}
+
+div.generic_content th{
+	font-weight: bold;
+	font-size: 12px;
+}
+
+div.generic_content a{
+	color: #566FA7;
+}
+
+div.fb-comments{
+	margin: 15px;	
+}
+
+div.error{
+	color: #FF0000;
+	margin: 10px;
+}
+
+div.candy_trail{
+	font-size: 13px;	
+}
+
+div.blog_post_imageblock{
+	display: block;
+	clear: both;
+}
+
+div.share_bar, div.share_bar div{
+	overflow: visible;
+}
+
+div.share_bar div{
+	margin-left: 15px;
+}
+
+/* WySiWyG editor */
+div.jHtmlArea { border: solid 1px #ccc; height: 500px; }
