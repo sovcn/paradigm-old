@@ -124,7 +124,8 @@ class Project(models.Model):
     slug = models.CharField(max_length=30)
     alt = models.CharField(max_length=255)
     
-    date = models.CharField(max_length=255)
+    date = models.CharField(max_length=100)
+    years = models.CharField(max_length=20)
     tools = models.CharField(max_length=255)
     
     image_count = models.IntegerField(default=3)

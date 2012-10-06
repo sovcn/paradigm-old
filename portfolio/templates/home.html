@@ -2,7 +2,7 @@
 
 {% block appendCSS %}
   {{ block.super }}
-  <link href="/static/styles/blog.css" style="text/css" rel="stylesheet" />
+
 {% endblock %}
   
 {%block banner %}
@@ -10,48 +10,4 @@
   
 {% block content %}
 
-<div id="home_content">
-	<div id="home_top">
-		<div id="image_slider">
-			<a id="splash_link_1" href="/image/info/{{ featured_images.0.pk }}"><img src="{{ featured_images.0.home_url }}" alt="{{ featured_images.0.caption }}" /></a>
-	        <a style="display: none;" id="splash_link_2" href="/image/info/{{ featured_images.1.pk }}"><img src="{{ featured_images.1.home_url }}" alt="{{ featured_images.1.caption }}" /></a>
-	        <a style="display: none;" id="splash_link_3" href="/image/info/{{ featured_images.2.pk }}"><img src="{{ featured_images.2.home_url }}" alt="{{ featured_images.2.caption }}" /></a>
-		</div>
-		<div id="home_splash_image_bottom">
-	        <a id="splash1" href="#" onclick="return false;" class="current_splash_link splash_link">1</a>
-	        <a id="splash2" href="#" onclick="return false;" class="splash_link">2</a>
-	        <a id="splash3" href="#" onclick="return false;" class="splash_link">3</a>
-	            
-	        <span class="splash_text" id="splash_text_1"><a href="/image/info/{{ featured_images.0.pk }}">{{ featured_images.0.caption }}</a></span>
-	        <span class="splash_text" style="display: none;" id="splash_text_2"><a href="/image/info/{{ featured_images.1.pk }}">{{ featured_images.1.caption }}</a></span>
-	        <span class="splash_text" style="display: none;" id="splash_text_3"><a href="/image/info/{{ featured_images.2.pk }}">{{ featured_images.2.caption }}</a></span>
-	         
-	    </div>
-	</div>
-	<div id="home_left">
-		{{ proj1.smallView }}
-		{{ proj2.smallView }}
-	    <!--<?=$this->projects[0]->toString_smallView();?>
-	    <?=$this->projects[1]->toString_smallView();?> -->
-	</div>
-	<div id="home_right">
-	    <div class="white_box generic_content">
-	    	<h1>Recent Blog Posts</h1>
-	    	<div style="margin-left: 0;" class="hr"></div>
-	    	{% for post in posts %}
-	    		<a href="/blog/{{ post.pk }}"><h2 class="blog_title">{{ post.title }}</h2></a>
-	    		<div class="blog_content">
-	    			<div><span>{{ post.author.displayName }} | {{ post.added }}</span></div>
-	    			<a href="/blog/{{ post.pk }}"><img src="{{ post.image_file.thumbnail }}" alt="{{ post.image_file.caption }}" align="left" /></a>
-	    			{{ post.description|safe }} <a href="/blog/{{ post.pk }}">[ Read More ]</a>
-	    		</div>
-	    		<div style="margin-left: 0;" class="hr"></div>
-	    	{% endfor %}
-	    	<a href="/blog">[ View All ]</a>
-	    </div>
-	    <br />
-	    <br />
-	    <br />
-	</div>
-</div>
 {% endblock %}
