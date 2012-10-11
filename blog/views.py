@@ -50,7 +50,7 @@ def blog_processor(request=None):
         
         out += t.render(c)
             
-    return {"featured": posts, "categories": categories, "tag_cloud": out}
+    return {"featured": posts, "categories": categories, "tag_cloud": out, 'page_id': 'blog'}
 
 ### END CONTEXT PROCESSORS ###
 

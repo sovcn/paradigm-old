@@ -4,10 +4,46 @@
   {{ block.super }}
 
 {% endblock %}
+
+{% block page_id %}home{% endblock %}
   
 {%block banner %}
 {% endblock %}
   
 {% block content %}
+<div id="layout_pageHeader">
+	<div id="layout_pageHeaderInfo">
+		<h1>Recent Activity</h1>
+		<div class="filter_container">
+			<nav>
+				<a href="" id="filter_selector_all" class="filter_item filter_selected">All</a>
+				<a href="" id="filter_selector_portfolio" class="filter_item">Portfolio</a>
+				<a href="" id="filter_selector_blog" class="filter_item">Blog</a>
+			</nav>
+			<div id="filter_selector" style="margin-left: {% block filter_selectorOffset %}20px{% endblock %};"><img src="/static/images/selector_blackSmall.png" alt="" width="8px" height="4px" /></div>
+		</div>
+	</div>
+	<div id="layout_pageHeaderSeperator"></div>
+</div>
+{% endblock %}
 
+{% block js %}
+<script type="text/javascript">
+$(document).ready(function(){
+	var filter = new paradigm.Filter("filter_selector", 'all', {
+		'all': 20,
+		'portfolio': 85,
+		'blog': 162
+	});
+	filter.initSelector('all', true, function(){
+		console.log('selected 1');
+	});
+	filter.initSelector('portfolio', true, function(){
+		console.log('selected 2');
+	});
+	filter.initSelector('blog', true, function(){
+		console.log('selected 3');
+	});
+});
+</script>
 {% endblock %}

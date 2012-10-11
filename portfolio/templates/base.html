@@ -1,68 +1,151 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://schema.org/{% block itemtype %}Blog{% endblock %}">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Kelly Smith | {% block title %}Home{% endblock %}</title>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>Kelly Smith | {% block title %}Home{% endblock %}</title>
 
-  
-  <meta property="og:title" content="Kelly Smith | {% block og_title %}Home{% endblock %}" />
-  <meta property="og:type" content="{% block og_type %}website{% endblock %}"/>
-  <meta property="og:url" content="{% block og_url %}http://www.innobdesign.com{{request.get_full_path}}{% endblock %}"/>
-  <meta property="og:description" content="{% block og_description %}A personal portfolio and blog for Kelly Smith.{% endblock %}" />
-  <meta property="og:image" content="{% block og_image %}http://www.innobdesign.com/image/26001/200/200/{% endblock %}"/>
-  <meta property="fb:admins" content="1320511353"/>
-  <meta property="fb:app_id" content="114060846889" />
-  
-  <meta itemprop="name" content="Kelly Smith | {% block itemprop_name %}Innovation by Design{% endblock %}">
-  <meta itemprop="description" content="{% block itemprop_description %}A personal portfolio and blog for Kelly Smith.{% endblock %}">
-
-  {% block appendCSS %}
-  {% endblock %}
-  
-  <!-- appendJS -->
-  {% block appendJS %}
-  {% endblock %}
 	
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-27371188-1']);
-  _gaq.push(['_setDomainName', 'innobdesign.com']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
+	<meta property="og:title" content="Kelly Smith | {% block og_title %}Home{% endblock %}" />
+	<meta property="og:type" content="{% block og_type %}website{% endblock %}"/>
+	<meta property="og:url" content="{% block og_url %}http://www.innobdesign.com{{request.get_full_path}}{% endblock %}"/>
+	<meta property="og:description" content="{% block og_description %}A personal portfolio and blog for Kelly Smith.{% endblock %}" />
+	<meta property="og:image" content="{% block og_image %}http://www.innobdesign.com/image/26001/200/200/{% endblock %}"/>
+	<meta property="fb:admins" content="1320511353"/>
+	<meta property="fb:app_id" content="114060846889" />
+	
+	<meta itemprop="name" content="Kelly Smith | {% block itemprop_name %}Innovation by Design{% endblock %}">
+	<meta itemprop="description" content="{% block itemprop_description %}A personal portfolio and blog for Kelly Smith.{% endblock %}">
+	
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
+	<link rel="stylesheet" href="/static/styles/global.css" />
+	{% block appendCSS %}
+	{% endblock %}
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+	
+	<!-- appendJS -->
+	{% block appendJS %}
+	{% endblock %}
+		
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-27371188-1']);
+	  _gaq.push(['_setDomainName', 'innobdesign.com']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	
+	</script>
+</head>
 <body>
 	<!-- Facebook Javascript API -->
 	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) {return;}
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=114060846889";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
-
-	<!-- Google Plus Render Code-->
-	<script type="text/javascript">
-	  (function() {
-	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-	    po.src = 'https://apis.google.com/js/plusone.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-	  })();
-	</script>
-	
         {% block banner %}
         {% endblock %}
         
-        {% block content %}
-        {% endblock %}
-        
-        
+        <div id="layout_top">
+			<div id="layout_title">
+				<div id="layout_titleLeft">
+					<img src="/static/images/title_bullet.png" width="11px" height="11px" />
+					<h1><a href="/">Kelly Smith</a></h1>
+					<span>Web Engineer, Researcher, World Travler</span>
+				</div>
+				<div id="layout_titleRight">
+					<nav>
+						<ul>
+							<li><a id="navigation_selector_home" href="/">Home</a></li>
+							<li><a id="navigation_selector_about" href="/about/">About</a></li>
+							<li style="width: 105px;"><a id="navigation_selector_portfolio" href="/project/list/">Portfolio</a></li>
+							<li style="width: 50px;"><a id="navigation_selector_blog" href="/blog/">Blog</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+        <div id="layout_middle">
+        	<div id="layout_contentContainer"><div id="layout_contentContainer1"><div id="layout_contentContainer2"><div id="layout_contentContainer3">
+        		<div id="layout_background">
+	        		<div id="layout_content">
+	        			<div id="layout_bannerShading">
+		        			<div id="layout_belowTitle">
+								<div id="layout_belowNav">
+									<img id="navigation_selector" src="/static/images/selector_red.png" width="12px" height="6px" class="selector_{% if page_id %}{{ page_id }}{% else %}home{% endif %}" alt="" />
+								</div>
+								<div id="layout_sepBelow"></div>
+							</div>
+							<div id="layout_bannerContent">
+								<article>
+			        				<h1><a href="">Illumination Rock on Mt Hood</a></h1>
+			        				<div><span>Monday, September 1, 2012</span></div>
+			        				<p>A friend and I climbed up the Palmer snowfield on Mt Hood reaching an elevation of about 9500 feet at Illumination Rock overlooking the Willamette Valley.</p>
+		        				</article>
+		        			</div>
+							<div id="layout_innerContent">
+					        	{% block content %}
+					        	{% endblock %}
+				        	</div>
+			        	</div>
+			        </div>
+		        </div>
+	        </div></div></div></div>
+        </div>
+        <div id="layout_bottom">
+        	<div id="layout_bottomContainer">
+        		<div id="layout_bottomLeft">
+        			<a target="_blank" href="http://www.facebook.com/sovcn"><img src="/static/images/icon_facebook.png" alt="Facebook" width="25px" height="24px" /></a>
+        			<a target="_blank" href="http://www.linkedin.com/pub/kelly-smith/18/4a/402"><img src="/static/images/icon_linkedIn.png" alt="LinkedIn" width="25px" height="24px" /></a>
+        		</div>
+        		<div id="layout_bottomRight">
+        			<nav>
+        				<ul id="navigation_bottom_{% if page_id %}{{ page_id }}{% else %}home{% endif %}">
+        					<li><a id="navigation_bottom_linkBlog" href="/blog/">Blog</a></li>
+        					<li style="width: 80px;"><a id="navigation_bottom_linkPortfolio" href="/project/list/">Portfolio</a></li>
+        					<li><a id="navigation_bottom_linkAbout" href="/about/">About</a></li>
+        					<li><a id="navigation_bottom_linkHome" href="/">Home</a></li>
+        				</ul>
+        			</nav>
+        			<div>
+        				Copyright <span>Kelly Smith</span> 2012
+        			</div>
+        		</div>
+        	</div>
+        </div>
+       
+       
+     <script type="text/javascript" src="/static/js/paradigm.js"></script>
+     <script>
+	     // Facebook and Google Code.
+	    (function(a,b,c){var d=a.getElementsByTagName(b)[0];a.getElementById(c)||(a=a.createElement(b),a.id=c,a.src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=114060846889",d.parentNode.insertBefore(a,d))})(document,"script","facebook-jssdk");(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="https://apis.google.com/js/plusone.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();
+
+		// Initialize title with filter animation
+		$(document).ready(function(){
+			var filter = new paradigm.Filter("navigation_selector", {% if page_id %}'{{ page_id }}'{% else %}'home'{% endif %}, {
+				'home': 35,
+				'about': 123,
+				'portfolio': 219,
+				'blog': 305
+			});
+			filter.initSelector('home', false, function(){
+				console.log('selected 1');
+			});
+			filter.initSelector('about', false, function(){
+				console.log('selected 2');
+			});
+			filter.initSelector('portfolio', false, function(){
+				console.log('selected 3');
+			});
+			filter.initSelector('blog', false, function(){
+				console.log('selected 4');
+			});
+		});
+		</script>
+		
     {% block js %}
     {% endblock %}
 </body>

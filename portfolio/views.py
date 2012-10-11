@@ -37,7 +37,8 @@ def index(request):
         "proj1": proj1,
         "proj2": proj2,
         "featured_images": featured_images,
-        "posts": posts
+        "posts": posts,
+        "page_id": "home"
     })
     
     return HttpResponse(t.render(c))
@@ -46,7 +47,8 @@ def about(request):
     
     t = loader.get_template('about.html')
     c = RequestContext(request,{
-        "age": 21
+        "age": 21,
+        "page_id": "about"
     })
     return HttpResponse(t.render(c))
 
@@ -66,7 +68,8 @@ def project_view(request, slug):
     project = Project.objects.get(slug=slug)
     t = loader.get_template('portfolio/templates/project_view.html')
     c = RequestContext(request,{
-        "project": project
+        "project": project,
+        "page_id": "portfolio"
     })
     
     return HttpResponse(t.render(c))
@@ -83,7 +86,8 @@ def projects(request, projects=None):
         "page_title": "PORTFOLIO",
         "page_description": """
                 Below are all of the major projects that I have worked on since high school (circa 2007).  Click on the title or image for more details on each.
-        """
+        """,
+        "page_id": "portfolio"
     })
     
     return HttpResponse(t.render(c))
@@ -96,7 +100,8 @@ def projects_programming(request):
     c = RequestContext(request,{
         "projects": projects,
         "page_title": "PROGRAMMING",
-        "page_description": "\"Measuring programming progress by lines of code is like measuring aircraft building progress by weight.\" - Bill Gates"
+        "page_description": "\"Measuring programming progress by lines of code is like measuring aircraft building progress by weight.\" - Bill Gates",
+        "page_id": "portfolio"
     })
     
     return HttpResponse(t.render(c))
@@ -108,7 +113,8 @@ def projects_web_design(request):
     c = RequestContext(request,{
         "projects": projects,
         "page_title": "WEB DESIGN",
-        "page_description": "\"Good design is obvious. Great design is transparent.\" - Joe Sparano"
+        "page_description": "\"Good design is obvious. Great design is transparent.\" - Joe Sparano",
+        "page_id": "portfolio"
     })
     
     return HttpResponse(t.render(c))
@@ -120,7 +126,8 @@ def projects_research(request):
     c = RequestContext(request,{
         "projects": projects,
         "page_title": "RESEARCH",
-        "page_description": "\"The hardest thing is to go to sleep at night, when there are so many urgent things needing to be done. A huge gap exists between what we know is possible with today's machines and what we have so far been able to finish.\" - Donald Knuth"
+        "page_description": "\"The hardest thing is to go to sleep at night, when there are so many urgent things needing to be done. A huge gap exists between what we know is possible with today's machines and what we have so far been able to finish.\" - Donald Knuth",
+        "page_id": "portfolio"
     })
     
     return HttpResponse(t.render(c))
