@@ -1,6 +1,7 @@
 from django.db import models
 from django.template import Context, loader
 
+import blog
 import re
 # Create your models here.
 
@@ -11,7 +12,7 @@ def initializeAllProjects():
             proj.delete()
         
         
-        proj = Project()
+        '''proj = Project()
         proj.title = "Platform Independent Cloud Scripting"
         proj.slug = "pics"
         proj.alt = proj.title
@@ -115,22 +116,25 @@ def initializeAllProjects():
         proj.image_count = 2
         proj.programming = True
         proj.design = True
-        proj.save()
+        proj.save()'''
         
 
 class Project(models.Model):
     
-    title = models.CharField(max_length=30)
+    post = models.OneToOneField(blog.models.Post)
+    
+    #title = models.CharField(max_length=30)
     slug = models.CharField(max_length=30)
     alt = models.CharField(max_length=255)
     
     date = models.CharField(max_length=100)
     years = models.CharField(max_length=20)
-    tools = models.CharField(max_length=255)
+    tools = models.CharField(max_length=500)
     
-    image_count = models.IntegerField(default=3)
+    #image_count = models.IntegerField(default=3)
+    #images = models.TextField()
     
-    html = models.TextField(default="Info Here")
+    aside_html = models.TextField(default="Info Here")
     
     design = models.BooleanField(default=False)
     programming = models.BooleanField(default=False)

@@ -2,7 +2,6 @@
 
 {% block appendCSS %}
   {{ block.super }}
-
 {% endblock %}
 
 {% block page_id %}home{% endblock %}
@@ -25,6 +24,80 @@
 	</div>
 	<div id="layout_pageHeaderSeperator"></div>
 </div>
+<div id="layout_content">
+	<div class="gallery_container">
+		<div class="gallery_content">
+			<h2><a href="">Fancy Dining at the Stockpot Broiler</a></h2>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in quam ac lorem vestibulum dapibus eget sed neque. 
+				Suspendisse lacinia, ipsum eget rutrum pretium, lorem risus mollis orci, sed adipiscing dolor dolor ac turpis. 
+				Mauris ac sagittis lorem. Proin eleifend, diam id dictum laoreet, libero urna volutpat risus, quis adipiscing nibh lorem a tellus. 
+				Vestibulum nec eros tellus, nec laoreet neque. Nunc elementum viverra euismod. Vestibulum tempus, eros ac ornare porttitor, 
+				dui nisi blandit augue, vel aliquam erat est gravida eros. In ultrices pulvinar molestie. Nunc tristique ultricies bibendum. 
+				Aliquam tempus, nunc sed placerat vehicula, odio magna rhoncus nunc, id feugiat massa nisl nec leo.
+			</p>
+			<div class="gallery_botInfo">
+				<span>Saturday, September 8, 2012</span>
+				<a href="">Read More</a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="gallery_container" style="background-image: url(/static/images/projects/ibd.jpg);">
+		<div class="gallery_content">
+			<h2><a href="">Innovation by Design</a></h2>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in quam ac lorem vestibulum dapibus eget sed neque. 
+				Suspendisse lacinia, ipsum eget rutrum pretium, lorem risus mollis orci, sed adipiscing dolor dolor ac turpis. 
+				Mauris ac sagittis lorem. Proin eleifend, diam id dictum laoreet, libero urna volutpat risus, quis adipiscing nibh lorem a tellus. 
+				Vestibulum nec eros tellus, nec laoreet neque. Nunc elementum viverra euismod. Vestibulum tempus, eros ac ornare porttitor, 
+				dui nisi blandit augue, vel aliquam erat est gravida eros. In ultrices pulvinar molestie. Nunc tristique ultricies bibendum. 
+				Aliquam tempus, nunc sed placerat vehicula, odio magna rhoncus nunc, id feugiat massa nisl nec leo.
+			</p>
+			<div class="gallery_botInfo">
+				<span>Saturday, September 8, 2012</span>
+				<a href="">Read More</a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="gallery_container">
+		<div class="gallery_content">
+			<h2><a href="">Fancy Dining at the Stockpot Broiler</a></h2>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in quam ac lorem vestibulum dapibus eget sed neque. 
+				Suspendisse lacinia, ipsum eget rutrum pretium, lorem risus mollis orci, sed adipiscing dolor dolor ac turpis. 
+				Mauris ac sagittis lorem. Proin eleifend, diam id dictum laoreet, libero urna volutpat risus, quis adipiscing nibh lorem a tellus. 
+				Vestibulum nec eros tellus, nec laoreet neque. Nunc elementum viverra euismod. Vestibulum tempus, eros ac ornare porttitor, 
+				dui nisi blandit augue, vel aliquam erat est gravida eros. In ultrices pulvinar molestie. Nunc tristique ultricies bibendum. 
+				Aliquam tempus, nunc sed placerat vehicula, odio magna rhoncus nunc, id feugiat massa nisl nec leo.
+			</p>
+			<div class="gallery_botInfo">
+				<span>Saturday, September 8, 2012</span>
+				<a href="">Read More</a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="gallery_container">
+		<div class="gallery_content">
+			<h2><a href="">Fancy Dining at the Stockpot Broiler</a></h2>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in quam ac lorem vestibulum dapibus eget sed neque. 
+				Suspendisse lacinia, ipsum eget rutrum pretium, lorem risus mollis orci, sed adipiscing dolor dolor ac turpis. 
+				Mauris ac sagittis lorem. Proin eleifend, diam id dictum laoreet, libero urna volutpat risus, quis adipiscing nibh lorem a tellus. 
+				Vestibulum nec eros tellus, nec laoreet neque. Nunc elementum viverra euismod. Vestibulum tempus, eros ac ornare porttitor, 
+				dui nisi blandit augue, vel aliquam erat est gravida eros. In ultrices pulvinar molestie. Nunc tristique ultricies bibendum. 
+				Aliquam tempus, nunc sed placerat vehicula, odio magna rhoncus nunc, id feugiat massa nisl nec leo.
+			</p>
+			<div class="gallery_botInfo">
+				<span>Saturday, September 8, 2012</span>
+				<a href="">Read More</a>
+			</div>
+		</div>
+	</div>
+</div>
+
 {% endblock %}
 
 {% block js %}
@@ -44,6 +117,11 @@ $(document).ready(function(){
 	filter.initSelector('blog', true, function(){
 		console.log('selected 3');
 	});
+	var initializeGallery = function(){
+		paradigm.Gallery.initialize("gallery_container", "gallery_content", "gallery_contentHover");
+	};
+	initializeGallery();
+	
 });
 </script>
 {% endblock %}

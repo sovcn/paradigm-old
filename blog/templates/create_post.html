@@ -5,11 +5,13 @@
 	<!-- Elrite Javascript -->
 	<script src="/static/elrte-1.3/js/elrte.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/static/elrte-1.3/js/i18n/elrte.en.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/static/js/create_blog.js" type="text/javascript" charset="utf-8"></script>
 {% endblock %}
 
 {% block appendCSS %}
 	{{ block.super }}
 	<link rel="stylesheet" href="/static/elrte-1.3/css/elrte.min.css" type="text/css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="/static/styles/forms.css" type="text/css" media="screen" charset="utf-8">
 {% endblock %}
 
 {% block sub_right %}
@@ -31,8 +33,6 @@
 
 {% block js %}
 {{ block.super }}
-<script type="text/javascript" src="/static/js/create_blog.js">
-</script>
 
 <script type="text/javascript">
 	$("document").ready(function(){

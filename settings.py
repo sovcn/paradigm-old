@@ -70,4 +70,4 @@ STATIC_ROOT = '/staticfiles/'
 
 BLOG_IMAGE_ROOT = '/static/images/blog/'
 
-DEBUG = False
+DEBUG = True

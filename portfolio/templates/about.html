@@ -1,55 +1,151 @@
-{% extends 'portfolio/templates/projects.html' %}
+{% extends 'portfolio/templates/base.html' %}
 
-{% block appendJS %}
-{{ block.super }}
-<script type="text/javascript">current_page_hover = "nav_about";</script>
+{% block title %}About{% endblock  %}
+
+{% block banner_content %}{% endblock %}
+
+{% block itemtype %}AboutPage{% endblock %}
+{% block itemprop_name %}About{% endblock %}
+
+{% block banner_style %}style="background-image: url(/static/images/banner_about.jpg);"{% endblock %}
+
+{% block appendCSS %}
+<style>
+	div#layout_pageHeaderContact{
+		margin-top: 5px;
+		margin-right: 10px;
+		text-align: right;
+	}
+	
+	div#layout_pageHeaderContact span{
+		font-size: 14px;
+		color: #bbbbbb;
+	}
+	
+	ul.images{
+		margin-top: 0;
+	}
+	
+	ul.images li{
+		margin-left: 40px;
+		height: 40px;
+	}
+	
+	ul.images li a{
+		display: block;
+	}
+	
+	
+	div.content_rightContainer h2.three_quarters{
+		display: block;
+		margin-right: 0;
+		width: 69%;
+		float: left;	
+		margin-bottom: 0;
+	}
+	div.content_rightContainer span.one_quarter{
+		margin: 3%;
+		display: block;
+		margin-left: 0;
+		width: 25%;
+		float: right;
+		color: #c1c1c1;
+		text-align: right;
+		margin-bottom: 0;
+	}
+</style>
 {% endblock %}
 
-{% block page_id %}about{% endblock %}
+{% block content %}
 
-
-{% block sub_right %}
-<div class="services_top project_top">
-    <span>About Me</span>
-    <p class="quote">"Reality is a story the mind tells itself." - Doug Rattmann</p>
-</div>
-
-<div class="generic_content">
-<p>I am currently a student at Slippery Rock University in Pennsylvania
-pursuing a BSc with a dual major in Computer Science and Mathematics. I am {{ age }} years old
-with plans to graduate in May 2013.  I currently live in Slippery Rock, Pennsylvania, but I grew up out west
-in Bozeman, Montana. As I am writing this, I am spending a semester abroad at the University of Bradford 
-in Bradford, England.
-I will be returning to the US in late January to wrap up my Junior year of University.
-</p>
-<p>
-My current research project is <a href="/project/pics">PICS: Platform Independent Cloud Scripting</a>.
-It deals with spawning out chunks of code to a heterogeneous cloud of clients on various
-platforms.  I was recently accepted to present this research at the 2012 SIGCSE Conference in
-Raleigh, North Carolina on February 29, 2012.  In addition to PICS, I also have strong research
-interests in robotics, automated parallelism, artificial intelligence, and web technologies.
-<a href="/project/list/research">Click here</a> for more information about my research.</p>
-
-<p>
-In addition to my research and academic interests, I also have a strong interest in web application development
-and design.  Nearly every project that I have worked on has some aspect which involves
-a web application and more often than not a web design.  I specialize in creating content management frameworks
-in PHP and Python, and their corresponding web interfaces with HTML, CSS, and JavaScript.<br />
-<a href="/project/list">Click here</a> for more information about my projects.
-</p>
-
-<p>
-Outside of my computer-related interests I enjoy hiking, camping, fencing,
-traveling, rock climbing, boating, skiing, and photography (basically anything that gets me outside).
-I am also extremely interested in musical pursuits.  In my free time, I play guitar and listen
- to music as often as I can - <a href="http://www.last.fm/user/sovcn">My Last.fm Profile</a>.
-Traveling is also very important to me, and I plan on spending as much time abroad as possible.
-</p>
-
-<p>My resume can be viewed here: <a href="http://granite.sru.edu/~kms3458/resume.pdf">resume.pdf</p>
-
-<p><img src="/static/images/me.jpg" alt="Kelly Smith" /></p>
-<div class="hr"></div>
-<div class="fb-comments" data-num-posts="5" data-width="500"></div>
-</div>
+<article>
+	<div id="layout_pageHeader">
+		<div id="layout_pageHeaderInfo">
+			<h1>About Me</h1>
+			<div id="layout_pageHeaderContact">
+				<span>Contact Me</span>
+				<a target="_blank" href="http://www.facebook.com/sovcn"><img src="/static/images/icon_facebook.png" alt="Facebook" width="25px" height="24px" /></a>
+	        	<a target="_blank" href="http://www.linkedin.com/pub/kelly-smith/18/4a/402"><img src="/static/images/icon_linkedIn.png" alt="LinkedIn" width="25px" height="24px" /></a>
+        	</div>
+		</div>
+		<div id="layout_pageHeaderSeperator"></div>
+	</div>
+	
+	<div class="content_standardRight">
+		<div class="content_rightContainer">
+			<div itemscope itemtype="http://schema.org/Person">
+				<div style="clear: both; overflow: hidden;">
+					<h2 class="three_quarters">Kelly Smith</h2>
+					<span class="one_quarter" style="font-size: 14px">Info</span>
+				</div>
+				<p class="profilePicture">
+					<img src="http://lh4.ggpht.com/YKdYpsV2e9htKUHQ5oCYtXnsjZoqEQ9h5C1H0j1DDjvOaCtxwWGRh93ZLJVClygT3WTjgb-EunMxCSLF9yGiptt2RA=s150" itemprop="image" alt="Profile Picture" />
+				</p>
+				<p class="contactInformation">
+					<span itemprop="telephone">(724) 372-1425</span><br />
+					<a href="mailto:mail@kelly-smith.me" itemprop="email">mail@kelly-smith.me</a><br />
+					<span itemprop="addressLocality">Portland</span>, <span itemprop="addressRegion">Oregon</span>
+				</p>
+				
+				<h3>Specialties</h3>
+				<p>
+					User Experience Design, Software Engineering, Web/Graphics Design
+				</p>
+				
+				
+				<h3>Skills</h3>
+				<p>
+					Adobe Photoshop, C, C++, CSS, Eclipse, HTML, Java, Python, Linux, OSX, Windows, MySQL, AJAX, PHP, JavaScript, jQuery, Dojo Toolkit, Node.js, Django, SmartGWT, MVC, Agile
+				</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="content_standardLeft">
+		<p style="margin-top: 10px;">Hello, and welcome to my website.  I am a 21 year old computer science and math dual major studying at the University of Slippery Rock in Pennsylvania.  
+		My interests include: hiking, mountaineering, traveling, gaming, photography, open source, web design and development, rapid prototyping, user experience design, 
+		and software engineering.</p>
+	
+		<p>When I was a freshmen in high school I started teaching myself Photosohp so that I could compete in weekly graphics design competitions in my gaming community 
+		(we called them clans).  As I became more and more proficient with Photoshop, I found that it lended itself extremely well to web design and development.  
+		I soon decided that I wanted to make my own web platform, so I taught myself C++, PHP, and MySQL and started building a content management system for gaming 
+		communities on Battle.net.  I have since released this project as open source on github, and it can be viewed here.  In addition, I also worked on several other 
+		projects before graduating high school, most of which can be found in my portfolio.</p>
+	
+		<p>Upon entering Slippery Rock University, I began my formal education as a computer scientist.  I have since produced three research projects, all of 
+		which have been accepted into conferences.  My most recent research, Platform Independent Cloud Scripting, won first place at the 2012 international 
+		ACM SIGCSE student research competition in March.</p>
+		
+		<p>
+		In my spare time, I love to travel and see the world.  I lived in England for four months while studying at the University of Bradford, and I have spent time in Bermuda, Mexico, Belgium, Germany, France, and Spain.
+		When I'm not traveling, I usually spend my time hiking, playing Starcraft II, or working on my various hobby projects.  I am also an avid aquarist and fish keeper.
+		</p>
+		
+		<h2>Notable Achievements</h2>
+		<div class="content">
+			<ul>
+				<li>Attended the NSF funded 2012 Monte Carlo Methods In Artificial Intelligence spring break program at Oregon State University - March 2012.</li>
+				<li>Received first place at the ACM SIGCSE international student research competition in Raleigh, North Carolina - March 2012.</li>
+				<li>Awarded SRU's 2010-2011 student research grant to work on Platform Independent Cloud Scripting, a platform independent parallel framework.</li>
+				<li>Selected to participate in the 2011 PASSHE Honors Summer Study Abroad program in historical archaeology. Took two courses starting at Millersville University and concluding with a two-week field-program in Bermuda - May-June 2011.</li>
+				<li>Presented "Solving Sudoku Puzzles: Optimization through Heuristics" at the CCSC Northeastern Conference in April 2010 as well as the NCHC conference in Kansas City in October 2010.</li>
+				<li>Awarded a meritorious designation on COMAP's international mathematical contest in modeling 2010.</li>
+				<li>Participated in the 2008 Pennsylvania Governor's School of Excellence for Information Society and Technology at Drexel University in Philadelphia, PA.</li>
+			</ul>
+		</div>
+		
+		
+		<h2>Web Presence</h2>
+		<div class="content" style="margin-top: 0px;">
+			<ul class="list_style_none horizontal images" style="margin-bottom: 15px; overflow: hidden;">
+				<li style="margin-left: 0px;"><a style="margin-top: 10px;" target="_blank" href="http://www.linkedin.com/pub/kelly-smith/18/4a/402"><img src="/static/images/icon_linkedInBig.png" alt="LinkedIn" width="100px" height="25px" /></a></li>
+				<li><a target="_blank" href="https://github.com/sovcn"><img src="/static/images/icon_github.png" alt="github" width="87px" height="40px" /></a></li>
+				<li style=""><a style="margin-top: 5px;" target="_blank" href="https://www.facebook.com/sovcn"><img src="/static/images/icon_facebookBig.png" alt="Facebook" width="109px" height="34px" /></a></li>
+				<li style=" padding-left: 35px;"><a style="margin-top: 8px;" target="_blank" href="https://www.djangoproject.com/"><img src="/static/images/icon_django.png" alt="Django" width="100px" height="26px" /></a></li>
+				<li style=""><a style="margin-top: 8px;" target="_blank" href="https://developers.google.com/appengine/"><img src="/static/images/icon_appEngine.png" alt="Google AppEngine" width="117px" height="26px" /></a></li>
+			</ul>
+		</div>
+	</div>
+	
+</article>
 {% endblock %}

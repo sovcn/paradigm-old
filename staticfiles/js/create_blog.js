@@ -1,4 +1,4 @@
-
+var ibd = {};
 ///  ibd.tags module
 ibd.tags = {};
 (function(){

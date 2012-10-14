@@ -1,20 +1,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" itemscope itemtype="http://schema.org/{% block itemtype %}Blog{% endblock %}">
+<html itemscope itemtype="http://schema.org/{% block itemtype %}WebPage{% endblock %}">
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<title>Kelly Smith | {% block title %}Home{% endblock %}</title>
+	<title>{% block title %}Home{% endblock %} | Kelly Smith</title>
 
+	<meta name="description" content="Hello, and welcome to my personal website.  I am a 21 year old computer science and math dual major studying at the University of Slippery Rock in Pennsylvania.  
+	My interests include: hiking, mountaineering, traveling, gaming, photography, open source, web design and development, rapid prototyping, user experience design, 
+	and software engineering." />
 	
-	<meta property="og:title" content="Kelly Smith | {% block og_title %}Home{% endblock %}" />
+	<meta property="og:title" content="{% block og_title %}Home{% endblock %} | Kelly Smith" />
 	<meta property="og:type" content="{% block og_type %}website{% endblock %}"/>
 	<meta property="og:url" content="{% block og_url %}http://www.innobdesign.com{{request.get_full_path}}{% endblock %}"/>
 	<meta property="og:description" content="{% block og_description %}A personal portfolio and blog for Kelly Smith.{% endblock %}" />
-	<meta property="og:image" content="{% block og_image %}http://www.innobdesign.com/image/26001/200/200/{% endblock %}"/>
+	<meta property="og:image" content="{% block og_image %}http://lh4.ggpht.com/YKdYpsV2e9htKUHQ5oCYtXnsjZoqEQ9h5C1H0j1DDjvOaCtxwWGRh93ZLJVClygT3WTjgb-EunMxCSLF9yGiptt2RA{% endblock %}"/>
 	<meta property="fb:admins" content="1320511353"/>
 	<meta property="fb:app_id" content="114060846889" />
 	
-	<meta itemprop="name" content="Kelly Smith | {% block itemprop_name %}Innovation by Design{% endblock %}">
+	<meta itemprop="name" content="{% block itemprop_name %}Home{% endblock %} | Kelly Smith">
 	<meta itemprop="description" content="{% block itemprop_description %}A personal portfolio and blog for Kelly Smith.{% endblock %}">
 	
 	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
@@ -58,10 +61,10 @@
 				</div>
 				<div id="layout_titleRight">
 					<nav>
-						<ul>
-							<li><a id="navigation_selector_home" href="/">Home</a></li>
-							<li><a id="navigation_selector_about" href="/about/">About</a></li>
-							<li style="width: 105px;"><a id="navigation_selector_portfolio" href="/project/list/">Portfolio</a></li>
+						<ul class="layout">
+							<li id="navigation_selector_home"><a id="navigation_selector_home" href="/">Home</a></li>
+							<li style="width: 80px;"><a id="navigation_selector_about" href="/about/">About</a></li>
+							<li style="width: 125px;"><a id="navigation_selector_portfolio" href="/project/list/">Portfolio</a></li>
 							<li style="width: 50px;"><a id="navigation_selector_blog" href="/blog/">Blog</a></li>
 						</ul>
 					</nav>
@@ -71,8 +74,8 @@
         <div id="layout_middle">
         	<div id="layout_contentContainer"><div id="layout_contentContainer1"><div id="layout_contentContainer2"><div id="layout_contentContainer3">
         		<div id="layout_background">
-	        		<div id="layout_content">
-	        			<div id="layout_bannerShading">
+	        		<div id="layout_contentBackground" {% block banner_style %}{% endblock %}>
+	        			<div{% if page_id == "home" %} id="layout_bannerShading"{% endif %}>
 		        			<div id="layout_belowTitle">
 								<div id="layout_belowNav">
 									<img id="navigation_selector" src="/static/images/selector_red.png" width="12px" height="6px" class="selector_{% if page_id %}{{ page_id }}{% else %}home{% endif %}" alt="" />
@@ -80,11 +83,13 @@
 								<div id="layout_sepBelow"></div>
 							</div>
 							<div id="layout_bannerContent">
+								{% block banner_content %}
 								<article>
 			        				<h1><a href="">Illumination Rock on Mt Hood</a></h1>
 			        				<div><span>Monday, September 1, 2012</span></div>
 			        				<p>A friend and I climbed up the Palmer snowfield on Mt Hood reaching an elevation of about 9500 feet at Illumination Rock overlooking the Willamette Valley.</p>
 		        				</article>
+		        				{% endblock %}
 		        			</div>
 							<div id="layout_innerContent">
 					        	{% block content %}
@@ -103,7 +108,7 @@
         		</div>
         		<div id="layout_bottomRight">
         			<nav>
-        				<ul id="navigation_bottom_{% if page_id %}{{ page_id }}{% else %}home{% endif %}">
+        				<ul class="layout" id="navigation_bottom_{% if page_id %}{{ page_id }}{% else %}home{% endif %}">
         					<li><a id="navigation_bottom_linkBlog" href="/blog/">Blog</a></li>
         					<li style="width: 80px;"><a id="navigation_bottom_linkPortfolio" href="/project/list/">Portfolio</a></li>
         					<li><a id="navigation_bottom_linkAbout" href="/about/">About</a></li>
@@ -127,9 +132,9 @@
 		$(document).ready(function(){
 			var filter = new paradigm.Filter("navigation_selector", {% if page_id %}'{{ page_id }}'{% else %}'home'{% endif %}, {
 				'home': 35,
-				'about': 123,
+				'about': 119,
 				'portfolio': 219,
-				'blog': 305
+				'blog': 310
 			});
 			filter.initSelector('home', false, function(){
 				console.log('selected 1');

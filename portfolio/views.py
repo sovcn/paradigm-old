@@ -17,10 +17,10 @@ def index(request):
         proj1 = Project.objects.get(slug="pics")
         proj2 = Project.objects.get(slug="ibd")
     except:
-        initializeAllProjects()
-        proj1 = Project.objects.get(slug="pics")
-        proj2 = Project.objects.get(slug="ibd")
-        
+        #initializeAllProjects()
+        #proj1 = Project.objects.get(slug="pics")
+        #proj2 = Project.objects.get(slug="ibd")
+        pass
     
     featured_images = ImageModel.objects.all().order_by("-added")
     featured_images = featured_images.filter(featured=True)

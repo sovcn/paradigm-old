@@ -49,8 +49,8 @@ class Post(models.Model):
     
     featured = models.BooleanField(default=False)
     draft = models.BooleanField(default=False)
-    #web_design = models.BooleanField(default=False) # Depreceated - KS 2/1/2012
-    #programming = models.BooleanField(default=False) # Depreceated
+    #web_design = models.BooleanField(default=False) #  KS 2/1/2012
+    #programming = models.BooleanField(default=False) # 
     
     def parse_tags(self, tag_string):
         tags = tag_string.split(",")
