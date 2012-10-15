@@ -94,7 +94,7 @@ def list_category(request, category):
     return HttpResponse(t.render(c))
 
 def list_tag(request, slug):
-    
+    slug = slug
     tag = get_object_or_404(Tag, slug=slug)
     conn = PostTag.objects.filter(tag=tag)
     posts = []
@@ -166,11 +166,14 @@ def create(request,blog_id=None):
             if blog_id:
                 post.pk = blog_id
                 post.added = added # Preserve the date of the old post
+                
+            post.title = form.cleaned_data['title']
             post.author = request.user.userprofile
             post.content_parsed = post.content = form.cleaned_data['text_wysiwyg']
             
             post.featured = form.cleaned_data['featured']
             post.draft = form.cleaned_data['draft']
+            post.is_project = form.cleaned_data['is_project']
             
             # Parse for images
             image = re.compile("\[image=\d+,\d+,\d+\]")
@@ -200,7 +203,10 @@ def create(request,blog_id=None):
                 
                 
             try:
-                post.image_file = ImageModel.objects.get(pk=int(request.POST['image_hidden']))
+                if not (request.POST['image_hidden'] == 'None'):
+                    post.image_file = ImageModel.objects.get(pk=int(request.POST['image_hidden']))
+                else:
+                    post.image_file = None
                 
                 post.save()
                 
@@ -231,9 +237,12 @@ def create(request,blog_id=None):
             cat_string = cat_string[0:len(cat_string)-1]
             
             #try:
+            image_file_pk = None
+            if(post.image_file is not None):
+                image_file_pk = post.image_file.pk
             form = PostForm(initial={"title": post.title, "featured": post.featured, "draft": post.draft, 
-                                         "text_wysiwyg":post.content,"tags": tag_string,"categories": cat_string, 
-                                         "image": post.image_file.pk},instance=post)
+                                         "text_wysiwyg":post.content_parsed,"tags": tag_string,"categories": cat_string, 
+                                         "image": image_file_pk},instance=post)
             '''except AttributeError:
                 # Post objects don't have a Draft attribute yet.
                 # This was added in to fix an error that happened when adding a  new attribute to a post

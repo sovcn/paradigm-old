@@ -9,19 +9,14 @@ from blog.models import ImageModel, Post
 
 
 def index(request):
-    
-    proj1 = None
-    proj2 = None
-    
-    try:
-        proj1 = Project.objects.get(slug="pics")
-        proj2 = Project.objects.get(slug="ibd")
-    except:
-        #initializeAllProjects()
+    projects = Project.objects.all()
+    for project in projects:
+        project.delete()
+    initializeAllProjects(request)
         #proj1 = Project.objects.get(slug="pics")
         #proj2 = Project.objects.get(slug="ibd")
-        pass
     
+    '''
     featured_images = ImageModel.objects.all().order_by("-added")
     featured_images = featured_images.filter(featured=True)
     featured_images = featured_images[0:3]
@@ -36,12 +31,22 @@ def index(request):
     c = RequestContext(request,{
         "proj1": proj1,
         "proj2": proj2,
-        "featured_images": featured_images,
         "posts": posts,
         "page_id": "home"
     })
     
     return HttpResponse(t.render(c))
+    
+    '''
+    
+    projects = Project.objects.all().order_by("-date")[0:2]
+    
+    t = loader.get_template('portfolio/templates/home.html')
+    c = RequestContext(request,{
+        "projects": projects
+    })
+    return HttpResponse(t.render(c))
+    
 
 def about(request):
     

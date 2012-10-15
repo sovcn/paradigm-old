@@ -41,6 +41,7 @@ class Post(models.Model):
     description = models.TextField(blank=True,max_length=500)
     
     image_file = models.ForeignKey(ImageModel,blank=True,null=True)
+    banner_image = models.TextField(blank=True,max_length=500)
 
     added = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now_add=True, auto_now=True)
@@ -49,6 +50,7 @@ class Post(models.Model):
     
     featured = models.BooleanField(default=False)
     draft = models.BooleanField(default=False)
+    is_project = models.BooleanField(default=False)
     #web_design = models.BooleanField(default=False) #  KS 2/1/2012
     #programming = models.BooleanField(default=False) # 
     
@@ -152,9 +154,25 @@ class Post(models.Model):
             "image_link": link
         })
         return t.render(c)
+    
+    def __unicode__(self):
+        if self.is_project and self.project is not None:
+            t = loader.get_template('portfolio/templates/projects/' + self.project.main_html)
+            c = Context({
+                "post": self,
+                "project": self.project,
+                "is_project": True,
+                "tags": self.get_tags()
+            })
+            return t.render(c)
+        else:
+            return "Post Content"
 
 class Tag(models.Model):
     slug = models.CharField(max_length=30)
+    
+    def getLink(self):
+        return '/blog/tag/' + self + '/'
     
     def __unicode__(self):
         return str(self.slug)

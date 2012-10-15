@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_subpage.html" %}
 {% load url from future %}
 
 {% block appendCSS %}
@@ -10,7 +10,7 @@
 <script type="text/javascript" src="/static/js/forms.js"></script>
 {% endblock %}
 
-{% block content %}
+{% block sub_left %}
 <div class="basic-form-container">
 <form id="cb_form" class="basic-form" style="width: 500px;" method="POST" action="{% url 'django.contrib.auth.views.login' %}">
 	{% csrf_token %}

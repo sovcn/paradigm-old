@@ -77,8 +77,9 @@ class PostForm(ModelForm):
     title_str = "Create Post"
     
     title = forms.CharField(required=True, label="", max_length=200, widget=forms.TextInput(attrs={'title': 'Title', 'class': 'basic-form-text-input'}))
-    featured = forms.BooleanField(required=True, initial=False)
-    draft = forms.BooleanField(required=True, initial=True, label="Draft?")
+    featured = forms.BooleanField(required=False, initial=False)
+    draft = forms.BooleanField(required=False, initial=True, label="Draft?")
+    is_project = forms.BooleanField(required=False, initial=False, label="Is Project?")
     
     image = forms.ImageField(label=None,widget=ImageInput,required=False,help_text="Images can be dragged into the content to place at the current position.")
     
@@ -89,7 +90,7 @@ class PostForm(ModelForm):
     
     class Meta:
         model = Post
-        exclude = ('title', 'featured', 'draft', 'author', 'content', 'description', 'content_parsed', 'image_file')
+        exclude = ('title', 'featured', 'draft', 'is_project', 'banner_image', 'author', 'content', 'description', 'content_parsed', 'image_file')
         
 class ImageForm(ModelForm):
     class Meta:

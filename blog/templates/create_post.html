@@ -5,7 +5,6 @@
 	<!-- Elrite Javascript -->
 	<script src="/static/elrte-1.3/js/elrte.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/static/elrte-1.3/js/i18n/elrte.en.js" type="text/javascript" charset="utf-8"></script>
-	<script src="/static/js/create_blog.js" type="text/javascript" charset="utf-8"></script>
 {% endblock %}
 
 {% block appendCSS %}
@@ -14,7 +13,7 @@
 	<link rel="stylesheet" href="/static/styles/forms.css" type="text/css" media="screen" charset="utf-8">
 {% endblock %}
 
-{% block sub_right %}
+{% block sub_left %}
 		<form id="cb_form" class="basic-form" method="POST">{% csrf_token %}
 			<fieldset>
 				<legend>{{ form.title_str }}</legend>
@@ -33,6 +32,9 @@
 
 {% block js %}
 {{ block.super }}
+<script src="/static/js/create_blog.js" type="text/javascript" charset="utf-8"></script>
+<script src="/static/js/ui.form.js" type="text/javascript" charset="utf-8"></script>
+<script src="/static/js/forms.js" type="text/javascript" charset="utf-8"></script>
 
 <script type="text/javascript">
 	$("document").ready(function(){

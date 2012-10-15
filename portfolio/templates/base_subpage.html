@@ -7,26 +7,22 @@
 {% endblock %}
 
 {% block banner %}
+    <div{% if page_id == "home" %} id="layout_bannerShading"{% endif %}>
+     			<div id="layout_belowTitle">
+			<div id="layout_belowNav">
+				<img id="navigation_selector" src="/static/images/selector_red.png" width="12px" height="6px" class="selector_{% if page_id %}{{ page_id }}{% else %}home{% endif %}" alt="" />
+			</div>
+			<div id="layout_sepBelow"></div>
+		</div>
+		<div id="layout_innerContent">
+            {% block sub_left %}
+            {% endblock %}
+            {% block sub_right %}
+            {% endblock %}
+       	</div>
+   </div>
 {% endblock %}
 
-{% block content %}
-<div id="sub_content">
-            <div id="sub_content_left">
-                {% block sub_left %}
-                {% endblock %}
-            </div>
-            <div id="sub_content_right">
-                {% block sub_right %}
-                {% endblock %}
-            </div>
-           
-        </div>
-{% endblock %}
 
 {% block js %}
-<script type="text/javascript">
-	$('document').ready(function(){
-		$('a.fancy').fancybox();
-	});
-</script>
 {% endblock %}

@@ -6,9 +6,6 @@
 
 {% block page_id %}home{% endblock %}
   
-{%block banner %}
-{% endblock %}
-  
 {% block content %}
 <div id="layout_pageHeader">
 	<div id="layout_pageHeaderInfo">
@@ -25,6 +22,10 @@
 	<div id="layout_pageHeaderSeperator"></div>
 </div>
 <div id="layout_content">
+	{% for proj in projects %}
+		{{ proj.displayGallery }}
+	{% endfor %}
+	<!--
 	<div class="gallery_container">
 		<div class="gallery_content">
 			<h2><a href="">Fancy Dining at the Stockpot Broiler</a></h2>
@@ -96,6 +97,7 @@
 			</div>
 		</div>
 	</div>
+	 -->
 </div>
 
 {% endblock %}

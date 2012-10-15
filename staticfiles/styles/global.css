@@ -311,10 +311,13 @@ div#layout_bannerContent{
 }
 
 div#layout_bannerContent h1{
+	margin: 0;
 	margin-top: 70px;
 }
 
 div#layout_bannerContent h1 a{
+	letter-spacing: 0;
+	font-weight: bold;
 	font-size: 12px;
 	color: #3c88d6;
 }
@@ -624,6 +627,13 @@ div.content_standardRight{
 	overflow: hidden;
 }
 
+div.content_standardRight div.content{
+	font-size: 13px;
+	color: #222222;
+	line-height: 18px;
+	margin: 10px;	
+}
+
 div.content_rightContainer{
 	background-color: #f6f9ff;
 	border: 1px solid #dbdfe7;
@@ -653,10 +663,23 @@ div.content_rightContainer p{
 	margin-right: 3%;	
 }
 
-div.content_rightContainer p.profilePicture img{
+div.content_rightContainer p.profilePicture img{Innobdesign
 	width: 90%;	
 }
 
+
+div.post_left{
+	width:65%;
+}
+
+div.post_right{
+	width: 35%;
+}
+
+div.post_left div.post_tagBar{
+	font-size: 11px;
+	margin-left: 15px;	
+}
 
 @media all and (min-width: 0px) and (max-width: 639px){
 	div.content_standardLeft{
@@ -689,4 +712,5 @@ div.content_rightContainer p.profilePicture img{
 		margin-left: 0;
 		padding-left: 0;
 	}
+}
 /* END CONTENT STYLES */

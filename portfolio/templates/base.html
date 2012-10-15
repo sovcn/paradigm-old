@@ -20,37 +20,22 @@
 	<meta itemprop="name" content="{% block itemprop_name %}Home{% endblock %} | Kelly Smith">
 	<meta itemprop="description" content="{% block itemprop_description %}A personal portfolio and blog for Kelly Smith.{% endblock %}">
 	
-	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css" />
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
 	<link rel="stylesheet" href="/static/styles/global.css" />
 	{% block appendCSS %}
 	{% endblock %}
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
 	
 	<!-- appendJS -->
 	{% block appendJS %}
 	{% endblock %}
-		
-	<script type="text/javascript">
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-27371188-1']);
-	  _gaq.push(['_setDomainName', 'innobdesign.com']);
-	  _gaq.push(['_trackPageview']);
-	
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-	
-	</script>
 </head>
 <body>
 	<!-- Facebook Javascript API -->
 	<div id="fb-root"></div>
-        {% block banner %}
-        {% endblock %}
         
         <div id="layout_top">
 			<div id="layout_title">
@@ -74,6 +59,7 @@
         <div id="layout_middle">
         	<div id="layout_contentContainer"><div id="layout_contentContainer1"><div id="layout_contentContainer2"><div id="layout_contentContainer3">
         		<div id="layout_background">
+        			{% block banner %}
 	        		<div id="layout_contentBackground" {% block banner_style %}{% endblock %}>
 	        			<div{% if page_id == "home" %} id="layout_bannerShading"{% endif %}>
 		        			<div id="layout_belowTitle">
@@ -97,6 +83,7 @@
 				        	</div>
 			        	</div>
 			        </div>
+			        {% endblock %}
 		        </div>
 	        </div></div></div></div>
         </div>

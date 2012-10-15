@@ -3,9 +3,10 @@ from django.template import Context, loader
 
 import blog
 import re
+from datetime import datetime
 # Create your models here.
 
-def initializeAllProjects():
+def initializeAllProjects(request):
         # Remove all existing
         projects = Project.objects.all()
         for proj in projects:
@@ -118,23 +119,51 @@ def initializeAllProjects():
         proj.design = True
         proj.save()'''
         
+        proj = Project()
+        post = blog.models.Post()
+        
+        post.title = "Innovation by Design"
+        post.content = "Content"
+        post.content_parsed = post.content
+        post.description = post.content
+        
+        post.banner_image = ""
+        post.author = request.user.userprofile
+        
+        post.featured = False
+        post.is_project = True
+        
+        post.save()
+        proj.post = post
+        
+        proj.slug = "innobdesign"
+        proj.alt = proj.post.title
+        proj.date = datetime(year=2011, month=11, day=1)
+        proj.years = "2009-2011"
+        proj.images = ""
+        proj.main_html = "innobdesign.html"
+        proj.aside_html = "innobdesign_aside.html"
+        
+        proj.design = True
+        proj.programming = True
+        proj.save()
 
 class Project(models.Model):
     
-    post = models.OneToOneField(blog.models.Post)
+    post = models.OneToOneField(blog.models.Post, null=True)
     
     #title = models.CharField(max_length=30)
     slug = models.CharField(max_length=30)
     alt = models.CharField(max_length=255)
     
-    date = models.CharField(max_length=100)
+    date = models.DateTimeField()
     years = models.CharField(max_length=20)
-    tools = models.CharField(max_length=500)
     
     #image_count = models.IntegerField(default=3)
-    #images = models.TextField()
+    images = models.TextField()
     
-    aside_html = models.TextField(default="Info Here")
+    main_html = models.TextField()
+    aside_html = models.TextField()
     
     design = models.BooleanField(default=False)
     programming = models.BooleanField(default=False)
@@ -143,7 +172,7 @@ class Project(models.Model):
     large_content = ""
     
     def description(self):
-        t = loader.get_template('portfolio/templates/projects/' + self.slug + '.html')
+        ''''t = loader.get_template('portfolio/templates/projects/' + self.slug + '.html')
         c = Context({
         })
         self.large_content = t.render(c)
@@ -152,7 +181,18 @@ class Project(models.Model):
         if len(description) > 300:
             description = description[0:296] + " ..."
         
-        return description
+        return description'''
+        
+        return self.post.description
+    
+    def title(self):
+        return self.post.title
+    
+    def getLink(self):
+        return "/project/" + self.slug + "/"
+    
+    def displayDate(self):
+        return self.date.strftime("%B %Y")
     
     def renderImages(self):
         out = ""
@@ -173,20 +213,29 @@ class Project(models.Model):
         return t.render(c)
     
     def __unicode__(self):
-        t = loader.get_template('portfolio/templates/project.html')
+        return self.title()
+    
+    def displayGallery(self):
+        t = loader.get_template('portfolio/templates/project_gallery.html')
         c = Context({
             "project": self
         })
         return t.render(c)
     
-    def getInfo(self):
-        if not self.large_content:
-            t = loader.get_template('portfolio/templates/projects/' + self.slug + '.html')
-            c = Context({
-            })
-            return t.render(c)
-        else:
-            return self.large_content
+    def delete(self, *args, **kwargs):
+        try:
+            self.post.delete()
+        except (blog.models.Post.DoesNotExist):
+            pass
+        super(Project, self).delete(*args, **kwargs)
+    
+    
+    def getAside(self):
+        t = loader.get_template('portfolio/templates/projects/' + self.aside_html)
+        c = Context({
+            "project": self
+        })
+        return t.render(c)
 
     
         

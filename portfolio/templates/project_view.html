@@ -1,4 +1,4 @@
-{% extends 'portfolio/templates/projects.html' %}
+{% extends 'portfolio/templates/base_subpage.html' %}
 
 {% block og_type %}article{% endblock %}
 {% block itemtype %}Article{% endblock %}
@@ -15,21 +15,28 @@
 
 {% block page_id %}portfolio{% endblock %}
 
+{% block appendCSS %}
+<style>	
+	div.content_rightContainer h2.three_quarters{
+		display: block;
+		margin-right: 0;
+		width: 69%;
+		float: left;	
+		margin-bottom: 0;
+	}
+	div.content_rightContainer span.one_quarter{
+		margin: 3%;
+		display: block;
+		margin-left: 0;
+		width: 25%;
+		float: right;
+		color: #c1c1c1;
+		text-align: right;
+		margin-bottom: 0;
+	}
+</style>
+{% endblock %}
+
 {% block sub_right %}
-<div class="services_top project_top">
-    <span>{{ project.title }}</span>
-    <p class="quote">{{ project.date }} | {{ project.tools }}</p>
-</div>
-
-<div class="hr"></div>
-<div class="share_bar" style="margin-left: 15px;">
-	<div style="width: 80px; float: left; border-right: 1px solid #CCCCCC;"><g:plusone></g:plusone></div>
-	<div style="overflow: visible; width: 400px; float: left; margin-left: 0px;"><div style="overflow: visible;" class="fb-like" data-send="true" data-width="400" data-show-faces="false"></div></div>
-</div>
-<div class="hr"></div>
-
-{{ project.getInfo|safe }}
-
-{{ project }}
-
+{{ project.post }}
 {% endblock %}
