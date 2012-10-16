@@ -1,0 +1,12 @@
+<div class="gallery_container" {% if project.hasImages %}style="background-image: url({{ project.getPrimaryImage }});"{% endif %}'>
+	<div class="gallery_content">
+		<h2><a href="{{ project.getLink }}">{{ project.post.title }}</a></h2>
+		<p>
+			{{ project.description|safe }}
+		</p>
+		<div class="gallery_botInfo">
+			<span>{{ project.displayDate }}</span>
+			<a href="{{ project.getLink }}">Read More</a>
+		</div>
+	</div>
+</div>

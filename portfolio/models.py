@@ -4,6 +4,7 @@ from django.template import Context, loader
 import blog
 import re
 from datetime import datetime
+from django.utils.html import strip_tags
 # Create your models here.
 
 def initializeAllProjects(request):
@@ -119,34 +120,140 @@ def initializeAllProjects(request):
         proj.design = True
         proj.save()'''
         
-        proj = Project()
-        post = blog.models.Post()
-        
-        post.title = "Innovation by Design"
-        post.content = "Content"
-        post.content_parsed = post.content
-        post.description = post.content
-        
-        post.banner_image = ""
-        post.author = request.user.userprofile
-        
-        post.featured = False
-        post.is_project = True
-        
-        post.save()
-        proj.post = post
-        
-        proj.slug = "innobdesign"
-        proj.alt = proj.post.title
-        proj.date = datetime(year=2011, month=11, day=1)
-        proj.years = "2009-2011"
-        proj.images = ""
-        proj.main_html = "innobdesign.html"
-        proj.aside_html = "innobdesign_aside.html"
-        
-        proj.design = True
-        proj.programming = True
-        proj.save()
+        if hasattr(request.user, 'userprofile'):
+            proj = Project()
+            post = blog.models.Post()
+            
+            post.title = "Innovation by Design"
+            post.content = "Innovation by Design was my first portfolio website, which was replaced by the website you are currently browsing in October, 2012. This project was originally constructed in 2009, and has gone through several iterations since."
+            post.content_parsed = post.content
+            post.description = post.content
+            
+            post.banner_image = ""
+            post.author = request.user.userprofile
+            
+            post.featured = False
+            post.is_project = True
+            
+            post.save()
+            proj.post = post
+            
+            proj.slug = "innobdesign"
+            proj.alt = proj.post.title
+            proj.date = datetime(year=2011, month=11, day=1)
+            proj.years = "2009-2011"
+            proj.images = "http://lh6.ggpht.com/PfJGBjbg451_lJVCC8PWgJLkplcBSMeI52f4hupP1mrsWEhxB-B3dxV8LXyYCISqodymRL-dPp2Iu8uupjrFZw_fxg=s473"
+            proj.main_html = "innobdesign.html"
+            proj.aside_html = "innobdesign_aside.html"
+            
+            proj.design = True
+            proj.programming = True
+            proj.save()
+
+
+
+
+
+            proj = Project()
+            post = blog.models.Post()
+            
+            post.title = "Platform Independent Cloud Scripting"
+            post.content = "In recent years it has become well understood that Moore's promised exponential growth in computational power can only continue if there is a shift in the fundamental design of software to exploit parallelism. Previous work has been done in minimizing the inherent difficulties of parallel programming, however in the same way that scripting and high-level languages represent a natural progression towards ease of development and platform independence, so too does this research represent a progression from these other parallelization methods to a Platform Independent Cloud Scripting (PICS) method."
+            post.content_parsed = post.content
+            post.description = post.content
+            
+            post.banner_image = ""
+            post.author = request.user.userprofile
+            
+            post.featured = True
+            post.is_project = True
+            
+            post.save()
+            proj.post = post
+            
+            proj.slug = "pics"
+            proj.alt = proj.post.title
+            proj.date = datetime(year=2012, month=5, day=1)
+            proj.years = "2010-2012"
+            proj.images = "http://lh4.ggpht.com/a1JqjaCAb6NJeSxsbEaC6sJqlQpBW_YJhsCSd2j1lFhi_OJ4lrdND_AMO3d8Or7-ks-JlK3eacml9PGO3A2CnonM0A=s500"
+            proj.main_html = "pics.html"
+            proj.aside_html = "pics_aside.html"
+            
+            proj.design = False
+            proj.programming = True
+            proj.research = True
+            proj.save()
+            
+            
+            
+            proj = Project()
+            post = blog.models.Post()
+            
+            post.title = "Google Summer of Code"
+            post.content = "This project was part of work that I did for Google's Summer of Code 2010. I worked together with a JavaScript consultant from Germany to design a sensor API plugin for the Dojo JavaScript framework. I worked closely with my mentoring organization (Dojo Toolkit) to develop a JavaScript API for accessing geolocation, accelerometer, and camera features on a variety of mobile devices and platforms including PhoneGap, W3C compliant browsers, WebOS, Bondi, and JIL."
+            post.content_parsed = post.content
+            post.description = post.content
+            
+            post.banner_image = ""
+            post.author = request.user.userprofile
+            
+            post.featured = True
+            post.is_project = True
+            
+            post.save()
+            proj.post = post
+            
+            proj.slug = "sensor"
+            proj.alt = proj.post.title
+            proj.date = datetime(year=2010, month=8, day=1)
+            proj.years = "2010"
+            proj.images = "http://lh5.ggpht.com/7yNwtQjF6jey8o5slxc6OOHggEYao12mrFSl-aWA_1NUxERBIate3-oHb6kzZHRcty4S1aODMDx1vpGXJV1vfF2S_L4=s473"
+            proj.main_html = "sensor.html"
+            proj.aside_html = "sensor_aside.html"
+            
+            proj.design = False
+            proj.programming = True
+            proj.research = False
+            proj.save()
+            
+            
+            
+            
+            proj = Project()
+            post = blog.models.Post()
+            
+            post.title = "Starcraft Metagame Central"
+            post.content = '''This project is currently a work in progress.  The goal is to create a 1-stop website
+                            for all things related to competitive Starcraft 2.  Right now, much of the foundation,
+                            user framework, and web design is finished, however I just don't have the time right now
+                            to see the rest of the project come to fruition. I will be looking for more time to finish
+                            what I've started, but for now I am content to use the <a href="http://www.allbuttonspressed.com/projects/django-nonrel">Django-nonrel</a> base that I have finished
+                            to deploy other smaller web apps on <a href="http://code.google.com/appengine/">Google App Engine</a>.
+                            '''
+            post.content_parsed = post.content
+            post.description = post.content
+            
+            post.banner_image = ""
+            post.author = request.user.userprofile
+            
+            post.featured = False
+            post.is_project = True
+            
+            post.save()
+            proj.post = post
+            
+            proj.slug = "sc2meta"
+            proj.alt = proj.post.title
+            proj.date = datetime(year=2011, month=8, day=1)
+            proj.years = "2011"
+            proj.images = "http://lh3.ggpht.com/EEVEXEsxd-HMu24L5e41Zg_03u8ZAuyiHTbTUUknBZLYzToG1pGD_Sjxn64Ih2yzcEtg8uQt_M4gr3FUTnl45-uyvg=s500"
+            proj.main_html = "sc2meta.html"
+            proj.aside_html = "sc2meta_aside.html"
+            
+            proj.design = True
+            proj.programming = True
+            proj.research = False
+            proj.save()
 
 class Project(models.Model):
     
@@ -183,7 +290,7 @@ class Project(models.Model):
         
         return description'''
         
-        return self.post.description
+        return strip_tags(self.post.description)
     
     def title(self):
         return self.post.title
@@ -205,6 +312,14 @@ class Project(models.Model):
         
         return out
     
+    def hasImages(self):
+        if(len(self.images) > 0 and len(self.images.split(",")) > 0):
+            return True;
+    
+    def getPrimaryImage(self):
+        if self.hasImages():
+            return self.images.split(",")[0]
+    
     def smallView(self):
         t = loader.get_template('portfolio/templates/project_small.html')
         c = Context({
@@ -225,7 +340,7 @@ class Project(models.Model):
     def delete(self, *args, **kwargs):
         try:
             self.post.delete()
-        except (blog.models.Post.DoesNotExist):
+        except (blog.models.Post.DoesNotExist, AttributeError):
             pass
         super(Project, self).delete(*args, **kwargs)
     

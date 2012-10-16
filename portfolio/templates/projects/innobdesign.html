@@ -1,0 +1,17 @@
+{% extends 'blog/templates/post_view.html' %}
+
+{% block post_content %}
+<p>
+Innovation by Design was my first portfolio website, which was replaced by the website you are currently browsing in October, 2012.  This project was originally constructed in 2009, and has gone through several iterations since.
+</p>
+
+<p>
+This project started out as a simple web application using Zend Framework and jQuery for the font-end and a MySQL database to store information about the projects I had been working on.
+In the winter of 2011, I decided to move the project to Google AppEngine to minimize hosting costs.  I ported the project to Django, and used <a href="http://www.allbuttonspressed.com/projects/django-nonrel">Django-nonrel</a>
+to leverage Django's data modeling on AppEngine.  In addition, I implemented a simple blog framework so that I could integrate my existing blog into my portfolio.
+</p>
+{% endblock %}
+
+{% block aside_content %}
+{{ project.getAside|safe }}
+{% endblock %}

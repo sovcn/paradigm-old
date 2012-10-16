@@ -154,7 +154,7 @@ class Post(models.Model):
             "image_link": link
         })
         return t.render(c)
-    
+
     def __unicode__(self):
         if self.is_project and self.project is not None:
             t = loader.get_template('portfolio/templates/projects/' + self.project.main_html)

@@ -44,6 +44,15 @@ h2{
 	overflow: hidden;
 }
 
+h3{
+	font-size: 13px;
+	font-weight: bold;
+	color: #444444;
+	margin: 15px;
+	margin-bottom: 5px;
+	overflow: hidden;
+}
+
 ul{
 	margin-left: 15px;	
 }
@@ -663,7 +672,7 @@ div.content_rightContainer p{
 	margin-right: 3%;	
 }
 
-div.content_rightContainer p.profilePicture img{Innobdesign
+div.content_rightContainer p.profilePicture img{
 	width: 90%;	
 }
 

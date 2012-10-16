@@ -1,4 +1,7 @@
-<div class="generic_content">
+
+{% extends 'blog/templates/post_view.html' %}
+
+{% block post_content %}
 <h3>Abstract:</h3>
 	<p>
 	In recent years it has become well understood that Moore's promised exponential growth in 
@@ -33,4 +36,8 @@
 	</p>
 	
 	<p>A presentation that I put together for this project can be viewed <a href="http://prezi.com/suxvlklxeqto/pics/">here</a>
-</div>
+{% endblock %}
+
+{% block aside_content %}
+{{ project.getAside|safe }}
+{% endblock %}

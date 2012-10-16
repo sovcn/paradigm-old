@@ -39,11 +39,12 @@ def index(request):
     
     '''
     
-    projects = Project.objects.all().order_by("-date")[0:2]
+    projects = Project.objects.all().order_by("-date")[0:4]
     
     t = loader.get_template('portfolio/templates/home.html')
     c = RequestContext(request,{
-        "projects": projects
+        "projects": projects,
+        "page_id": "home"
     })
     return HttpResponse(t.render(c))
     
