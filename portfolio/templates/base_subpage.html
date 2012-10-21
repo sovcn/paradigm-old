@@ -1,9 +1,36 @@
 {% extends 'portfolio/templates/base.html' %}
 
-{% block appendCSS %}
-{% endblock %}
+{% block banner_style %}style="background: none;"{% endblock %}
 
-{% block appendJS %}
+{% block appendCSS %}
+	{{block.super}}
+
+	img.ss_primaryImage{
+		display: block;
+		margin: 2%;
+		width: 96%;
+	}
+	/*
+	img.ss_primaryImage:hover{
+		border: 1px solid #2565a6;
+	}*/
+	
+	div.ss_galleryImage{
+		max-width: 160px;
+		margin-left: 2%;
+		width: 23%;
+		height: 150px;
+		float: left;
+	}
+	
+	div.ss_galleryImage img{
+		width: 90%;
+		border: 1px solid #CCCCCC;
+	}
+	
+	div.ss_galleryImage img:hover{
+		border: 1px solid #2565a6;
+	}
 {% endblock %}
 
 {% block banner %}
@@ -15,14 +42,30 @@
 			<div id="layout_sepBelow"></div>
 		</div>
 		<div id="layout_innerContent">
-            {% block sub_left %}
-            {% endblock %}
-            {% block sub_right %}
-            {% endblock %}
+			<div style="clear: both; overflow: hidden">
+				<article>
+				
+					<div class="content_standardRight {% block post_right %}post_right{% endblock %}">
+						<div class="content_rightContainer">
+			            {% block sub_right %}
+			            {% endblock %}
+			            </div>
+			        </div>
+			        
+			        <div class="content_standardLeft {% block post_left %}post_left{% endblock %}">
+			            {% block sub_left %}
+			            {% endblock %}
+		            </div>
+		        </article>
+		    </div>
        	</div>
    </div>
 {% endblock %}
 
 
 {% block js %}
+$(document).ready(function(){
+	var slideShow = new paradigm.SlideShow("ss_primaryImage", "ss_galleryImage", "=s[0-9]+");
+	slideShow.init();
+});
 {% endblock %}

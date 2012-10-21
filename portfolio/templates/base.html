@@ -23,8 +23,10 @@
 	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css" />
 	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
 	<link rel="stylesheet" href="/static/styles/global.css" />
+	<style>
 	{% block appendCSS %}
 	{% endblock %}
+	</style>
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
@@ -32,7 +34,11 @@
 	<!-- appendJS -->
 	{% block appendJS %}
 	{% endblock %}
-</head>
+	
+	<script>
+		var a=a||[];a.push(["_setAccount","UA-35729396-1"]);a.push(["_trackPageview"]);var b=document.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);
+	</script>
+	</head>
 <body>
 	<!-- Facebook Javascript API -->
 	<div id="fb-root"></div>
@@ -58,9 +64,9 @@
 		</div>
         <div id="layout_middle">
         	<div id="layout_contentContainer"><div id="layout_contentContainer1"><div id="layout_contentContainer2"><div id="layout_contentContainer3">
-        		<div id="layout_background">
+        		<div id="layout_background" style="min-height: 700px">
+        			<div id="layout_contentBackground" {% block banner_style %}{% endblock %}>
         			{% block banner %}
-	        		<div id="layout_contentBackground" {% block banner_style %}{% endblock %}>
 	        			<div{% if page_id == "home" %} id="layout_bannerShading"{% endif %}>
 		        			<div id="layout_belowTitle">
 								<div id="layout_belowNav">
@@ -82,8 +88,8 @@
 					        	{% endblock %}
 				        	</div>
 			        	</div>
-			        </div>
 			        {% endblock %}
+			        </div>
 		        </div>
 	        </div></div></div></div>
         </div>
@@ -136,9 +142,9 @@
 				console.log('selected 4');
 			});
 		});
-		</script>
-		
+
     {% block js %}
     {% endblock %}
+    </script>
 </body>
 </html>

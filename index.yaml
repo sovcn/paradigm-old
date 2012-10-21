@@ -32,3 +32,16 @@ indexes:
   - name: featured
   - name: added
     direction: desc
+
+- kind: blog_post
+  properties:
+  - name: featured
+  - name: is_project
+  - name: added
+    direction: desc
+
+- kind: blog_post
+  properties:
+  - name: is_project
+  - name: added
+    direction: desc

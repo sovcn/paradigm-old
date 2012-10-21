@@ -1,14 +1,12 @@
-<div style="clear: both; overflow: hidden;">
-	<h2 class="three_quarters">Information</h2>
-	<span class="one_quarter" style="font-size: 16px">{{ project.years }}</span>
-</div>
+{% extends 'portfolio/templates/projects/aside.html' %}
 
-<p>Last updated: {{ project.displayDate }}</p>
+{% block aside_content %}
 
 <div class="content">
 	<ul>
-		<li>Designed from scratch using <a href="/blog/tag/Photoshop">Photoshop</a>.</li>
+		<li>Designed to be a one-stop portal for all things related to competitive Starcraft 2</li>
 		<li>Developed alongside the (now called) Paradigm portfolio engine.</li>
-		<li>Origninally built on PHP and Zend Framework, but ported to Google AppEngine using Django-nonrel.</li>
+		<li>Serves as a base framework for several other projects deployed to AppEngine using Django</li>
 	</ul>
 </div>
+{% endblock %}

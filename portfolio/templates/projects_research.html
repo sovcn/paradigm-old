@@ -1,41 +1,21 @@
 {% extends 'portfolio/templates/projects.html' %}
 
-{% block appendJS %}
-{{ block.super }}
-<script type="text/javascript">current_page_hover = "nav_research";</script>
-{% endblock %}
-
 {% block sub_right %}
-<div class="services_top">
-    <span>{{ page_title }}</span>
-	<p class="quote">{{ page_description }}</p>
-</div>
-
-<div class="generic_content">
-	   <p>Starting in 2009 in my first year at university I began working on a resarch project
-	   titled <a href="/project/sudoku">Solving Sudoku Puzzles: Optimization through heuristics</a>.
-	   Since then I have worked on two additional projects: 
-	   <a href="/project/mandelbrot">Arbitrary Precision Fractals on CUDA</a> and <a href="/project/pics">
-	   PICS: Platform Independent Cloud Scripting</a>.  Click on each of the projects below for more information.
+<h2>Research</h2>
+	  <p>
+	  	To the left you will see a list of all of the research projects that I have worked on since entering college
+	  	in 2009.
+	  </p>
+        
+        <p>
+        I have strong research
+		interests in robotics, automated parallelism, artificial intelligence, and web technologies.
+        Combined, as of October 2012, my research has produced four conference presentations 
+        (3 national and 1 regional) as well as a local research symposium presentation.
         </p>
         
         <p>
-        I also have strong research
-		interests in robotics, automated parallelism, artificial intelligence, and web technologies.
-        Combined, as of February 29, 2012, my research will have produced three conference presentations 
-        (2 national and 1 regional) as well as a local research symposium presentation.
+        In March of 2012, my project titled: <a href="/project/pics/">Platform Independent Cloud Scripting</a> received
+        <strong>first</strong> place at the 2012 SIGCSE International Student Research Competition during their <a target="_blank" href="http://www.sigcse.org/">annual conference</a>.
         </p>
-</div>
-
-
-<div class="hr"></div>
-
-
-<div class="generic_content">
-Below is a list of all my major research projects.
-</div>	
-	{% for project in projects %}
-		{{ project }}
-	{% endfor %}
-
 {% endblock %}

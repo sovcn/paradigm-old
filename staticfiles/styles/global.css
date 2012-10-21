@@ -643,6 +643,10 @@ div.content_standardRight div.content{
 	margin: 10px;	
 }
 
+div.content_standardRight div.content span.label{
+	color: #777777;
+}
+
 div.content_rightContainer{
 	background-color: #f6f9ff;
 	border: 1px solid #dbdfe7;
@@ -673,9 +677,29 @@ div.content_rightContainer p{
 }
 
 div.content_rightContainer p.profilePicture img{
-	width: 90%;	
+	width: 90%;
+	max-width: 150px;	
 }
 
+div#content_headerContainer{
+	max-width: 600px;
+	min-width: 400px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+div#content_headerContainer h1{
+	margin: 0;
+}
+
+h1.content_header{
+	margin-top: 0px;	
+}
+
+
+.content_minMargin{
+	margin: 5px;	
+}
 
 div.post_left{
 	width:65%;
@@ -688,6 +712,31 @@ div.post_right{
 div.post_left div.post_tagBar{
 	font-size: 11px;
 	margin-left: 15px;	
+}
+
+div.post_minimalContainer{
+	clear: both;
+	overflow: hidden;
+	margin-top: 15px;
+}
+
+
+div.post_minimalLeft{
+	clear: both;
+	overflow: hidden;
+	width: 202px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+div.post_minimalLeft img{
+	border: 1px solid #CCCCCC;
+}
+
+div.post_minimalLeft img:hover{
+	border: 1px solid #2565a6;
+	
 }
 
 @media all and (min-width: 0px) and (max-width: 639px){

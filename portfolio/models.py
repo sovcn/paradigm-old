@@ -142,7 +142,7 @@ def initializeAllProjects(request):
             proj.alt = proj.post.title
             proj.date = datetime(year=2011, month=11, day=1)
             proj.years = "2009-2011"
-            proj.images = "http://lh6.ggpht.com/PfJGBjbg451_lJVCC8PWgJLkplcBSMeI52f4hupP1mrsWEhxB-B3dxV8LXyYCISqodymRL-dPp2Iu8uupjrFZw_fxg=s473"
+            proj.images = "http://lh6.ggpht.com/PfJGBjbg451_lJVCC8PWgJLkplcBSMeI52f4hupP1mrsWEhxB-B3dxV8LXyYCISqodymRL-dPp2Iu8uupjrFZw_fxg"
             proj.main_html = "innobdesign.html"
             proj.aside_html = "innobdesign_aside.html"
             
@@ -175,7 +175,7 @@ def initializeAllProjects(request):
             proj.alt = proj.post.title
             proj.date = datetime(year=2012, month=5, day=1)
             proj.years = "2010-2012"
-            proj.images = "http://lh4.ggpht.com/a1JqjaCAb6NJeSxsbEaC6sJqlQpBW_YJhsCSd2j1lFhi_OJ4lrdND_AMO3d8Or7-ks-JlK3eacml9PGO3A2CnonM0A=s500"
+            proj.images = "http://lh6.ggpht.com/ugneQwpPhrfsLbqWKc6BSpTSsOrm6J8p2MorG0uyPC_-LYaEMDAiscZksRo_aWaEvSQMgBxmCgcnd1fP4lgWBL7W,http://lh4.ggpht.com/a1JqjaCAb6NJeSxsbEaC6sJqlQpBW_YJhsCSd2j1lFhi_OJ4lrdND_AMO3d8Or7-ks-JlK3eacml9PGO3A2CnonM0A,http://lh6.ggpht.com/m3VrKcmV8b0lJGS_wz9mNF0ZHBATAqDKj9Mypk5aCPicxE3aGUhmoTgNfbutD6bU27wBNQTuTVnEQFezLzji4QJtrg,http://lh4.ggpht.com/2vBbXPD7SOAJliN5rJXFZ2E5BclQhwFoxGMMiTpVgs-DZYyLaxMDUs83vCg-jXThNI6kbrw2bF-8cwq0neL9uqABAQ"
             proj.main_html = "pics.html"
             proj.aside_html = "pics_aside.html"
             
@@ -207,7 +207,7 @@ def initializeAllProjects(request):
             proj.alt = proj.post.title
             proj.date = datetime(year=2010, month=8, day=1)
             proj.years = "2010"
-            proj.images = "http://lh5.ggpht.com/7yNwtQjF6jey8o5slxc6OOHggEYao12mrFSl-aWA_1NUxERBIate3-oHb6kzZHRcty4S1aODMDx1vpGXJV1vfF2S_L4=s473"
+            proj.images = "http://lh5.ggpht.com/7yNwtQjF6jey8o5slxc6OOHggEYao12mrFSl-aWA_1NUxERBIate3-oHb6kzZHRcty4S1aODMDx1vpGXJV1vfF2S_L4"
             proj.main_html = "sensor.html"
             proj.aside_html = "sensor_aside.html"
             
@@ -246,9 +246,42 @@ def initializeAllProjects(request):
             proj.alt = proj.post.title
             proj.date = datetime(year=2011, month=8, day=1)
             proj.years = "2011"
-            proj.images = "http://lh3.ggpht.com/EEVEXEsxd-HMu24L5e41Zg_03u8ZAuyiHTbTUUknBZLYzToG1pGD_Sjxn64Ih2yzcEtg8uQt_M4gr3FUTnl45-uyvg=s500"
+            proj.images = "http://lh3.ggpht.com/EEVEXEsxd-HMu24L5e41Zg_03u8ZAuyiHTbTUUknBZLYzToG1pGD_Sjxn64Ih2yzcEtg8uQt_M4gr3FUTnl45-uyvg"
             proj.main_html = "sc2meta.html"
             proj.aside_html = "sc2meta_aside.html"
+            
+            proj.design = True
+            proj.programming = True
+            proj.research = False
+            proj.save()
+            
+            proj = Project()
+            post = blog.models.Post()
+            
+            post.title = "Sovereign Clan Manager"
+            post.content = '''Sovereign Clan Manager is a content management system that I built from the ground up while in high school. 
+                                It is designed to provide a seamless web interface that allows gaming communities to organize and keep track of their members, 
+                                news, and other gaming related content.
+                            '''
+            post.content_parsed = post.content
+            post.description = post.content
+            
+            post.banner_image = ""
+            post.author = request.user.userprofile
+            
+            post.featured = False
+            post.is_project = True
+            
+            post.save()
+            proj.post = post
+            
+            proj.slug = "scm"
+            proj.alt = proj.post.title
+            proj.date = datetime(year=2009, month=5, day=1)
+            proj.years = "2007-2009"
+            proj.images = "http://lh3.ggpht.com/sCu1AidocSS6Fdo2-FW-4GjEh-e4T6bdOg8oKs19_3U4p1Qu270G4m0zHA9UTwX5pTIuP3E24E4py6Dz2O1rkVy2hg"
+            proj.main_html = "scm.html"
+            proj.aside_html = "scm_aside.html"
             
             proj.design = True
             proj.programming = True

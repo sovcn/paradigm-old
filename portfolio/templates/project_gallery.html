@@ -1,4 +1,4 @@
-<div class="gallery_container" {% if project.hasImages %}style="background-image: url({{ project.getPrimaryImage }});"{% endif %}'>
+<div class="gallery_container" {% if project.hasImages %}style="background-image: url({{ project.getPrimaryImage }}=s500);"{% endif %}'>
 	<div class="gallery_content">
 		<h2><a href="{{ project.getLink }}">{{ project.post.title }}</a></h2>
 		<p>

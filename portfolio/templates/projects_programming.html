@@ -1,13 +1,8 @@
 {% extends 'portfolio/templates/projects.html' %}
 
 {% block sub_right %}
-<div class="services_top">
-    <span>{{ page_title }}</span>
-	<p class="quote">{{ page_description }}</p>
-</div>
-
-<div class="generic_content">
-	   <div>I specialize in <strong>cross-platform development</strong> and have experience working with many of the most popular programming technologies.
+<h2>Programming</h2>
+<div class="content">I specialize in <strong>cross-platform development</strong> and have experience working with many of the most popular programming technologies.
     <ul>
             <li>Java</li>
             <li>PHP/MySQL web development</li>
@@ -16,9 +11,9 @@
             <li>Python Django/Django-nonrel</li>
             <li>HTML/CSS</li>
        </ul>
-      </div>
+</div>
         
-       <div>My primary focus is on web technologies, however I have experience working with a variety of different platforms.
+ <div class="content">My primary focus is on web technologies, however I have experience working with a variety of different platforms.
 	<ul>
             <li>Linux/OSX/Windows</li>
             <li>Android</li>
@@ -26,10 +21,10 @@
             <li>Google Appengine</li>
             <li>LAMP</li>
         </ul>
-        </div>
+</div>
         
-        <div>
-       Additionally, I have done small educational projects using the following technologies. 
+
+       <div class="content">Additionally, I have done small educational projects using the following technologies. 
         <ul>
             <li>OpenGL/Direct3D</li>
             <li>MIPS Assembly</li>
@@ -38,19 +33,5 @@
             <li>MPI</li>
         </ul>
         </div>
-</div>
-
-
-<div class="hr"></div>
-
-
-<div class="generic_content">
-Below is a list of all the major projects that I have worked on which involve programming.
-</div>
-
-	{% for project in projects %}
-		{{ project }}
-	{% endfor %}
-
 
 {% endblock %}

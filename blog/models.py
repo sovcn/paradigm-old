@@ -139,6 +139,22 @@ class Post(models.Model):
             
         return tags
     
+    def tagLinkCSV(self):
+        tags = self.get_tags()
+        out = ""
+        count = 0
+        for tag in tags:
+            count += 1
+            out += '<a href="/blog/tag/' + str(tag) + '">' + str(tag) + '</a>'
+            if count < len(tags):
+                out += ','
+        
+        return out
+    
+    def getFirstImage(self):
+        if(self.is_project):
+            return self.project.getPrimaryImage()
+        
     @staticmethod    
     def generateImage(image, width, height, link=None):
         if not link:
@@ -157,16 +173,35 @@ class Post(models.Model):
 
     def __unicode__(self):
         if self.is_project and self.project is not None:
+            images = self.project.images.split(",")
+            
             t = loader.get_template('portfolio/templates/projects/' + self.project.main_html)
             c = Context({
                 "post": self,
                 "project": self.project,
+                "images": images,
                 "is_project": True,
                 "tags": self.get_tags()
             })
             return t.render(c)
         else:
             return "Post Content"
+    
+    def getLink(self):
+        if self.is_project:
+            return self.project.getLink()
+        else:
+            return "/blog/" + str(self.pk) + "/"
+     
+    def viewMinimal(self):
+        t = loader.get_template('blog/templates/post_viewMinimal.html')
+        c = Context({
+            "post": self,
+            "is_project": self.is_project,
+            "url": self.getLink()
+        })
+        return t.render(c)
+
 
 class Tag(models.Model):
     slug = models.CharField(max_length=30)

@@ -66,6 +66,7 @@ class ContentInput(TextInput):
     
         t = loader.get_template('form/element_content.html')
         c = Context({
+            "value": value
         })
         
         out = t.render(c)

@@ -23,7 +23,7 @@ from django.utils import simplejson
 ### START CONTEXT PROCESSORS ###
 def blog_processor(request=None):
     # Loads category and tag information for displaying
-    posts = Post.objects.filter(featured=True)
+    posts = Post.objects.filter(featured=True, is_project=False)
     posts = sorted(posts, key=lambda post: post.added, reverse=True)
     
     categories = Category.objects.all()
@@ -57,14 +57,10 @@ def blog_processor(request=None):
 ### START BASIC VIEWS ###
 
 def list(request):
-    
-    posts = Post.objects.all().order_by("-added")
+    posts = Post.objects.filter(is_project=False)
     
     t = loader.get_template('blog_list.html')
     c = RequestContext(request,{
-        "candy_trail": '<strong>Home</strong>',
-        "title": "Recent Blog Posts",
-        "sub_title": "",
         "posts": posts
     }, [blog_processor])
     
@@ -138,9 +134,9 @@ def view(request, blog_id):
     else:
         og_image = None
     
-    t = loader.get_template('blog_view.html')
+    t = loader.get_template('post_view.html')
     c = RequestContext(request,{
-        "candy_trail": '<a href="/blog">Home</a> -> <strong>Post</strong>',
+        "candy_trail": '<a href="/blog">Blog</a> - <strong>' + post.title + '</strong>',
         "post": post,
         "og_image": og_image
     }, [blog_processor])

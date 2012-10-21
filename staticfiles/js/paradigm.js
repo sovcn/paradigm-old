@@ -10,6 +10,9 @@ var paradigm = {
 		this.offsets = offsets;
 		
 		this.timeout = {};
+	
+		$('#' + id).css('margin-left', offsets[index]);
+		$('#' + id + '_' + index).addClass("filter_selected");
 	}
 	
 	paradigm.Filter.prototype.initSelector = function(index, initClick, callback){
@@ -86,6 +89,57 @@ var paradigm = {
 		});
 	};
 	
+})();
+
+// Slide Show
+(function(){
+	var id;
+	var galleryClass;
+	var postfix;
+	
+	paradigm.SlideShow = function(id, galleryClass, postfix){
+		this.id = id;
+		this.galleryClass = galleryClass;
+		this.postfix = postfix;
+	}
+	
+	paradigm.SlideShow.prototype.init = function(){
+		console.log("." + this.galleryClass);
+		
+		console.log("#" + this.id);
+		$("#" + this.id).click(function(){
+			console.log("TESTINGprim");
+		});
+		
+		var that = this;
+		$("." + this.galleryClass).click(function(){
+			var newSrc = "";
+			
+			var thisSrc = $(this).children(":first").attr('src');
+			var primarySrc = $("#" + that.id).attr('src');
+			
+			var newPostfix = primarySrc.match(that.postfix);
+			if(newPostfix){
+				var oldPostfix = thisSrc.match(that.postfix);
+				if( oldPostfix ){
+					console.log(oldPostfix);
+					newSrc = thisSrc.replace(oldPostfix[0], newPostfix[0]);
+				} else{
+					console.error("Unable to assign new postfix to image src. Gallery image url incorrectly formed.");
+					return;
+				}
+			}else {
+				console.error("Unable to assign new postfix to image src.  Primary image url incorrectly formed.");
+				return;
+			}
+			
+			var preload = new Image(newSrc);
+			$("#" + that.id).animate({opacity: 0}, 1000, function(){
+				$("#" + that.id).attr('src', newSrc);
+				$("#" + that.id).animate({opacity: 1}, 500);
+			});
+		});
+	}
 })();
 
 

@@ -1,16 +1,13 @@
-<div class="sub_content"> 
-	Sovereign Clan Manager is a content management system that I built from the ground up while in
+{% extends 'blog/templates/post_view.html' %}
+
+{% block post_content %}
+<p>
+Sovereign Clan Manager is a content management system that I built from the ground up while in
 	high school.  It is designed to provide a seamless web interface that allows gaming communities
 	to organize and keep track of their members, news, and other gaming related content.
-</div> 
-<div class="hr"></div> 
-<div class="sub_content">
-	Some of the notable features that have been implemented are: 
-	<ul>
-		<li>User management and security modules</li>
-		<li>OOP design practices with an emphasis ease of development</li>
-		<li>Custom templating engine</li>
-		<li>Extensive real world testing and improvements over the course of 2 years</li>
-	</ul>
-</div>
-<div class="hr"></div>
+</p>
+{% endblock %}
+
+{% block aside_content %}
+{{ project.getAside|safe }}
+{% endblock %}

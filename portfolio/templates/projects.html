@@ -4,43 +4,56 @@
 
 {% block page_id %}portfolio{% endblock %}
 
-{% block appendJS %}
-{{ block.super }}
-<script type="text/javascript">current_page_hover = "nav_portfolio";</script>
+{% block sub_right %}
+	<h3>Hello</h3>
+	<p>Welcome to my personal portfolio.  To the left you will find projects that I have worked on starting in 2007 as a sophomore in high school.</p>
+	<p>
+		<a href="/about/">Click here for more information about me and the work that I do.</a>
+	</p>
 {% endblock %}
 
+
 {% block sub_left %}
-<div style="height: 20px;"></div>
-   <div id="sub_nav_programming_dim" width="91px" height="87px" class="dims"></div>
-   <div id="sub_nav_design_dim" width="90px" height="79px" class="dims"></div>
-   <div id="sub_nav_research_dim" width="90px" height="79px" class="dims"></div>
-   <div id="sub_nav_links">
-       <h2>Portfolio</h2>
-       <a href="/project/list/programming">
-           <img class="sub_nav" width="86px" height="82px" id="sub_nav_programming" src="/static/images/sub_nav_programming.png" alt="Programming" />
-       </a>
-       <a href="/project/list/web-design">
-           <img class="sub_nav" width="79px" height="70px" id="sub_nav_design" src="/static/images/sub_nav_design.png" alt="Web Design" />
-       </a>
-       <a href="/project/list/research">
-           <img class="sub_nav" width="79px" height="70px" id="sub_nav_research" src="/static/images/sub_nav_research.png" alt="Research" />
-       </a>
-   </div>
-   <div style="height: 20px;"></div>
-   {% endblock %}
-   
-{% block sub_right %}
-	<div class="services_top">
-    <span>{{ page_title }}</span>
-	</div>
-	<div class="sub_content contact">
-	    {{ page_description }}
+	<div id="content_headerContainer" style="border: 0;">
+		<h1>Portfolio</h1>
+		<div class="filter_container">
+			<nav>
+				<a href="/project/list/" id="filter_selector_all" class="filter_item">All</a>
+				<a href="/project/list/design/" id="filter_selector_design" class="filter_item">Design</a>
+				<a href="/project/list/research/" id="filter_selector_research" class="filter_item">Research</a>
+				<a href="/project/list/programming/" id="filter_selector_programming" class="filter_item">Programming</a>
+			</nav>
+			<div id="filter_selector" style="margin-left: {% block filter_selectorOffset %}20px{% endblock %};"><img src="/static/images/selector_blackSmall.png" alt="" width="8px" height="4px" /></div>
+		</div>
 	</div>
 	
-	<div class="hr"></div>
+	<div id="portfolio_contentContainer">
+	{% block portfolio_description %}{% endblock %}
 	
 	{% for project in projects %}
-		{{ project }}
+		{{ project.post.viewMinimal }}
 	{% endfor %}
+	</div>
 	
+{% endblock %}
+
+{% block js %}
+	var filter = new paradigm.Filter("filter_selector", '{{ filter_selected }}', {
+		'all': 20,
+		'design': 77,
+		'research': 158,
+		'programming': 260
+	});
+	filter.initSelector('all', false, function(){
+		console.log('selected 1');
+	});
+	filter.initSelector('design', false, function(){
+		console.log('selected 2');
+	});
+	filter.initSelector('research', false, function(){
+		console.log('selected 3');
+	});
+	filter.initSelector('programming', false, function(){
+		console.log('selected 3');
+	});
 {% endblock %}

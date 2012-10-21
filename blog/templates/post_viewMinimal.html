@@ -1,0 +1,23 @@
+<div class="post_minimalContainer">
+	{% if post.is_project %}
+		<div class="post_minimalLeft">
+			<img src="{{ post.project.getPrimaryImage }}=s200" alt="{{post.title}}" />
+		</div>
+	{% else %}
+		{% if post.image_file %}
+			<div class="post_minimalLeft">
+ 				<a href="/blog/{{ post.pk }}"><img src="{{ post.image_file.thumbnail }}" alt="{{ post.image_file.caption }}" align="left" /></a>
+			</div>
+		{% endif %}
+	{% endif %}
+
+		<h2 class="content_minMargin"><a href="{{ url }}">{{ post.title }}</a></h2>
+ 		<p class="content_minMargin">
+ 			{% if post.is_project %}
+ 				<span>{{ post.tagLinkCSV|safe }} | {{ post.project.years }}</span><br />
+ 			{% else %}
+ 				<span>{{ post.author.displayName }} | {{ post.added }}</span><br />
+ 			{% endif %}
+ 			{{ post.description|safe }} <br /><a href="{{ url }}">[ Read More ]</a>
+ 		</p>
+</div>

@@ -3,14 +3,19 @@
 {% block appendJS %}
 	{{ block.super }}
 	<!-- Elrite Javascript -->
+	<script src="/static/js/create_blog.js" type="text/javascript"></script>
 	<script src="/static/elrte-1.3/js/elrte.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="/static/elrte-1.3/js/i18n/elrte.en.js" type="text/javascript" charset="utf-8"></script>
+
 {% endblock %}
 
 {% block appendCSS %}
 	{{ block.super }}
+	
+	</style>
 	<link rel="stylesheet" href="/static/elrte-1.3/css/elrte.min.css" type="text/css" media="screen" charset="utf-8">
 	<link rel="stylesheet" href="/static/styles/forms.css" type="text/css" media="screen" charset="utf-8">
+	<style> 
 {% endblock %}
 
 {% block sub_left %}
@@ -37,6 +42,7 @@
 <script src="/static/js/forms.js" type="text/javascript" charset="utf-8"></script>
 
 <script type="text/javascript">
+
 	$("document").ready(function(){
 		ibd.category.initialize_add_dialog("add_category_dialog", "add_category_link", "id_categories");
 		ibd.category.initalize_selectable("id_categories", "id_categories_hidden");

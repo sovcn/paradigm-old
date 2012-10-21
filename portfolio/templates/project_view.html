@@ -16,7 +16,8 @@
 {% block page_id %}portfolio{% endblock %}
 
 {% block appendCSS %}
-<style>	
+	{{ block.super }}
+	
 	div.content_rightContainer h2.three_quarters{
 		display: block;
 		margin-right: 0;
@@ -34,9 +35,9 @@
 		text-align: right;
 		margin-bottom: 0;
 	}
-</style>
+	
 {% endblock %}
 
-{% block sub_right %}
+{% block sub_left %}
 {{ project.post }}
 {% endblock %}

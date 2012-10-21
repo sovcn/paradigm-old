@@ -1,0 +1,91 @@
+{% extends 'portfolio/templates/base_subpage.html' %}
+
+{% block og_type %}article{% endblock %}
+{% block itemtype %}Article{% endblock %}
+
+{% block og_title %}{{post.title}}{% endblock %}
+{% block title %}{{post.title}}{% endblock %}
+{% block itemprop_name %}{{post.title}}{% endblock %}
+
+
+{% block og_description %}{{post.description|safe}}{% endblock %}
+{% block itemprop_description %}{{post.description|safe}}{% endblock %}
+
+{% block og_image %}{{ post.getFirstImage }}=s200{% endblock %}
+
+{% block page_id %}portfolio{% endblock %}
+
+{% block appendCSS %}
+	{{ block.super }}
+	
+	div.content_rightContainer h2.three_quarters{
+		display: block;
+		margin-right: 0;
+		width: 61%;
+		float: left;	
+		margin-bottom: 0;
+	}
+	div.content_rightContainer span.one_quarter{
+		margin: 3%;
+		display: block;
+		margin-left: 0;
+		width: 33%;
+		float: right;
+		color: #c1c1c1;
+		text-align: right;
+		margin-bottom: 0;
+	}
+	
+{% endblock %}
+
+<!--<div class="share_bar" style="margin-left: 15px;">
+	<div style="width: 80px; float: left; border-right: 1px solid #CCCCCC;"><g:plusone></g:plusone></div>
+	<div style="overflow: visible; width: 400px; float: left; margin-left: 0px;"><div style="overflow: visible;" class="fb-like" data-send="true" data-width="400" data-show-faces="false"></div></div>
+</div>
+-->
+
+{% block sub_right %}
+		<div itemscope itemtype="http://schema.org/Article">
+			{% block aside_content %}
+				<h2>Post Information</h2>
+				<div class="content">
+					<span class="label">Added: </span>{{ post.added }}<br />
+					<span class="label">Last Modified: </span>{{ post.modified }}<br />
+					<span class="label">Tags: </span>{{ post.tagLinkCSV|safe }}<br />
+				</div>
+				<h2>Author</h2>
+				<p>Kelly Smith</p>
+				<p class="profilePicture">
+					<img style="max-width: 100px" src="http://lh4.ggpht.com/YKdYpsV2e9htKUHQ5oCYtXnsjZoqEQ9h5C1H0j1DDjvOaCtxwWGRh93ZLJVClygT3WTjgb-EunMxCSLF9yGiptt2RA=s150" itemprop="image" alt="Profile Picture" />
+				</p>
+				<p class="contactInformation">
+					<span itemprop="telephone">(724) 372-1425</span><br />
+					<a href="mailto:mail@kelly-smith.me" itemprop="email">mail@kelly-smith.me</a><br />
+					<span itemprop="addressLocality">Portland</span>, <span itemprop="addressRegion">Oregon</span>
+				</p>
+			{% endblock %}
+		</div>
+{% endblock %}
+
+{%block sub_left %}
+	{% if candy_trail %}
+		<p>{{ candy_trail|safe }}</p>
+	{% endif %}
+	<h1>{{ post.title }}</h1>
+	<div class="post_tagBar">{% if is_project %}Tools: {% for tag in post.get_tags %}<a href="/blog/tag/{{tag}}/">{{tag}}</a> {% endfor %}{% endif %}</div>
+	{% block post_content %}
+		{{ post.content_parsed|safe }}
+	{% endblock %}
+	{% if is_project %}
+		<div class="content_projectSlideShow">
+		{% block project_slideShow %}
+			<img id="ss_primaryImage" src="{{ images.0 }}=s700" class="ss_primaryImage" alt="{{post.title}}" />
+		{% endblock %}
+		</div>
+		<div class="content_ssGallery">
+			{% for value in images %}
+				<div class="ss_galleryImage"><img src="{{value}}=s160" alt="{{post.title}}" /></div>
+			{% endfor %}
+		</div>
+	{% endif %}
+{% endblock %}
