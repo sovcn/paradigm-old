@@ -1,4 +1,6 @@
-<div class="generic_content">
+{% extends 'blog/templates/post_view.html' %}
+
+{% block post_content %}
 <p>
 	A complete write-up of this project can be viewed online: 
 	<a href="http://granite.sru.edu/~kms3458/research/mandelbrot/mandelbrot.pdf">Arbitrary Precision Fractals on CUDA</a>
@@ -11,8 +13,12 @@
 </p>
 
 <p>
-	The primary focus of this research was to develop a method for generating mandelbrot fractal images
+	The primary focus of this research was to develop a method for generating Mandelbrot fractal images
 	using both OpenMP and CUDA and to compare different aspects of their performance.  Additionally, a system
 	for performing arbitrary precision calculations was developed and implemented on both parallel platforms.
 </p>
-</div>
+{% endblock %}
+
+{% block aside_content %}
+{{ project.getAside|safe }}
+{% endblock %}

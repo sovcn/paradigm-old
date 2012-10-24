@@ -3,6 +3,7 @@ from django.template import Context, loader
 from sc2meta.models import UserProfile
 
 from google.appengine.api.images import get_serving_url
+from django.utils.html import strip_tags
 
 class ImageModel(models.Model):
     file = models.FileField(upload_to='uploads/%Y/%m/%d/%H/%M/%S/')
@@ -88,6 +89,9 @@ class Post(models.Model):
                 except PostTag.MultipleObjectsReturned:
                     continue
 
+    def getDescription(self):
+        return strip_tags(self.description)
+
     def parse_categories(self, cat_string):
         cats = cat_string.split(",")
         category = None
@@ -147,13 +151,18 @@ class Post(models.Model):
             count += 1
             out += '<a href="/blog/tag/' + str(tag) + '">' + str(tag) + '</a>'
             if count < len(tags):
-                out += ','
+                out += ', '
         
         return out
     
     def getFirstImage(self):
         if(self.is_project):
             return self.project.getPrimaryImage()
+        else:
+            if self.image_file:
+                return self.image_file.thumbnail
+            else:
+                return ""
         
     @staticmethod    
     def generateImage(image, width, height, link=None):
@@ -201,6 +210,20 @@ class Post(models.Model):
             "url": self.getLink()
         })
         return t.render(c)
+    
+    def delete(self, *args, **kwargs):
+        try:
+            conns = PostCategory.objects.filter(post=self)
+            for conn in conns:
+                conn.delete()
+                
+            conns = PostTag.objects.filter(post=self)
+            for conn in conns:
+                conn.delete()
+            
+        except (blog.models.PostCategory.DoesNotExist, blog.models.PostTag.DoesNotExist, AttributeError):
+            pass
+        super(Post, self).delete(*args, **kwargs)
 
 
 class Tag(models.Model):

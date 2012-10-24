@@ -2,7 +2,7 @@
 	<div class="gallery_content">
 		<h2><a href="{{ project.getLink }}">{{ project.post.title }}</a></h2>
 		<p>
-			{{ project.description|safe }}
+			<a href="{{ project.getLink }}">{{ project.post.getDescription|safe }}</a>
 		</p>
 		<div class="gallery_botInfo">
 			<span>{{ project.displayDate }}</span>

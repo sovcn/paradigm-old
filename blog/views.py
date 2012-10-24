@@ -1,10 +1,12 @@
-from django.core import serializers 
+from django.core import serializers
+from django.core.cache import cache
 
 from django.shortcuts import render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.template import Context, RequestContext, loader
 from django.core.urlresolvers import reverse
+from django.views.decorators.cache import cache_page
 
 from blog.forms import PostForm, ImageForm
 
@@ -48,6 +50,8 @@ def blog_processor(request=None):
         else:
             c.update({"tag_class": "smallest"})
         
+        if count == 0:
+            continue
         out += t.render(c)
             
     return {"featured": posts, "categories": categories, "tag_cloud": out, 'page_id': 'blog'}
@@ -55,17 +59,21 @@ def blog_processor(request=None):
 ### END CONTEXT PROCESSORS ###
 
 ### START BASIC VIEWS ###
-
+@cache_page(60*60*24)
 def list(request):
-    posts = Post.objects.filter(is_project=False)
+
+    posts = Post.objects.filter(is_project=False).order_by("-added")
+
     
     t = loader.get_template('blog_list.html')
     c = RequestContext(request,{
-        "posts": posts
+        "posts": posts,
+        "title": "Blog"
     }, [blog_processor])
     
     return HttpResponse(t.render(c))
-    
+
+@cache_page(60*60*24)
 def list_category(request, category):
     
     category = get_object_or_404(Category, name=category)
@@ -89,6 +97,7 @@ def list_category(request, category):
     
     return HttpResponse(t.render(c))
 
+@cache_page(60*60*24)
 def list_tag(request, slug):
     slug = slug
     tag = get_object_or_404(Tag, slug=slug)
@@ -112,6 +121,7 @@ def list_tag(request, slug):
     
     return HttpResponse(t.render(c))
 
+@cache_page(60*60*24)
 def view(request, blog_id):
     post = get_object_or_404(Post, pk=int(blog_id))
     
@@ -161,7 +171,6 @@ def create(request,blog_id=None):
             post = form.save(commit=False)
             if blog_id:
                 post.pk = blog_id
-                post.added = added # Preserve the date of the old post
                 
             post.title = form.cleaned_data['title']
             post.author = request.user.userprofile
@@ -205,6 +214,9 @@ def create(request,blog_id=None):
                     post.image_file = None
                 
                 post.save()
+                if added:
+                    post.added = added # Preserve the date of the old post
+                    post.save() # overwrite auto_add_now etc
                 
                 post.parse_tags(request.POST['tags_hidden'])
                 post.parse_categories(request.POST['categories_hidden'])
@@ -213,7 +225,8 @@ def create(request,blog_id=None):
                 
             except (ImageModel.DoesNotExist, ImageModel.MultipleObjectsReturned):
                 form.errors.append("Invalid image file.");
-            
+                           
+            cache.clear()
 
     else:
         if not blog_id == None:

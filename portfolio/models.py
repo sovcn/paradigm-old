@@ -13,113 +13,6 @@ def initializeAllProjects(request):
         for proj in projects:
             proj.delete()
         
-        
-        '''proj = Project()
-        proj.title = "Platform Independent Cloud Scripting"
-        proj.slug = "pics"
-        proj.alt = proj.title
-        proj.date = "Fall 2010 - Present"
-        proj.tools = "Python, JavaScript, Django, Node.js, Mozilla Rhino, Android, jQuery"
-        proj.image_count = 3
-        proj.programming = True
-        proj.research = True
-        proj.save()
-        
-        proj = Project()
-        proj.title = "Innovation by Design"
-        proj.slug = "ibd"
-        proj.alt = proj.title
-        proj.date = "June 2009 and November 2011"
-        proj.tools = "Photoshop, PHP, Python, Zend Framework, Django-nonrel, Appengine, JQuery"
-        proj.programming = True
-        proj.design = True
-        proj.save()
-        
-        proj = Project()
-        proj.title = "SRU Competitive Gaming"
-        proj.slug = "srugaming"
-        proj.alt = proj.title
-        proj.date = "Fall 2011"
-        proj.tools = "Python, Django-nonrel, Google Appengine, Photoshop"
-        proj.image_count = 1
-        proj.programming = True
-        proj.design = True
-        proj.save()
-        
-        proj = Project()
-        proj.title = "Starcraft Metagame Central"
-        proj.slug = "sc2meta"
-        proj.alt = proj.title
-        proj.date = "Summer 2011"
-        proj.tools = "Python, Django-nonrel, Google Appengine, Photoshop"
-        proj.image_count = 3
-        proj.programming = True
-        proj.design = True
-        proj.save()
-        
-        proj = Project()
-        proj.title = "Arbirary Precision: Mandelbrot"
-        proj.slug = "mandelbrot"
-        proj.alt = proj.title
-        proj.date = "Fall 2010"
-        proj.tools = "C++, CUDA, OpenMP, OpenGL"
-        proj.image_count = 1
-        proj.programming = True
-        proj.research = True
-        proj.save()
-        
-        proj = Project()
-        proj.title = "Dojo Sensor"
-        proj.slug = "sensor"
-        proj.alt = proj.title
-        proj.date = "Summer 2010"
-        proj.tools = "JavaScript, reStructuredText, PhoneGap, Android, WebOS, JIL, BONDI"
-        proj.image_count = 2
-        proj.programming = True
-        proj.save()
-        
-        proj = Project()
-        proj.title = "Sudoku Heuristics and Classification"
-        proj.slug = "sudoku"
-        proj.alt = proj.title
-        proj.date = "September 2009"
-        proj.tools = "Xcode, Objective-C, PHP, XML-RPC, Photoshop"
-        proj.image_count = 3
-        proj.programming = True
-        proj.research = True
-        proj.save()
-        
-        proj = Project()
-        proj.title = "Pokemon Java Clone"
-        proj.slug = "pokemon"
-        proj.alt = proj.title
-        proj.date = "June 2009"
-        proj.tools = "Java, Photoshop, MySQL"
-        proj.image_count = 2
-        proj.programming = True
-        proj.save()
-        
-        proj = Project()
-        proj.title = "ClaniT Application Framework"
-        proj.slug = "clanit"
-        proj.alt = proj.title
-        proj.date = "June 2008"
-        proj.tools = "Photoshop, PHP, MySQL, Zend Framework, HTML, CSS"
-        proj.programming = True
-        proj.design = True
-        proj.save()
-        
-        proj = Project()
-        proj.title = "Sovereign Clan Manager"
-        proj.slug = "scm"
-        proj.alt = proj.title
-        proj.date = "April 2007"
-        proj.tools = "Photoshop, PHP, MySQL, JavaScript"
-        proj.image_count = 2
-        proj.programming = True
-        proj.design = True
-        proj.save()'''
-        
         if hasattr(request.user, 'userprofile'):
             proj = Project()
             post = blog.models.Post()
@@ -135,14 +28,17 @@ def initializeAllProjects(request):
             post.featured = False
             post.is_project = True
             
+            
             post.save()
+            post.parse_tags("Python,PHP,jQuery,Django,Zend-Framework,Photoshop,AppEngine,Paradigm")
+            
             proj.post = post
             
             proj.slug = "innobdesign"
             proj.alt = proj.post.title
             proj.date = datetime(year=2011, month=11, day=1)
             proj.years = "2009-2011"
-            proj.images = "http://lh6.ggpht.com/PfJGBjbg451_lJVCC8PWgJLkplcBSMeI52f4hupP1mrsWEhxB-B3dxV8LXyYCISqodymRL-dPp2Iu8uupjrFZw_fxg"
+            proj.images = "http://lh6.ggpht.com/PfJGBjbg451_lJVCC8PWgJLkplcBSMeI52f4hupP1mrsWEhxB-B3dxV8LXyYCISqodymRL-dPp2Iu8uupjrFZw_fxg,http://lh4.ggpht.com/cehVbp4isx0fhKykKFoKscy-jdXX864UADOCUift7b9ThSIzzBL8Jugqq3F_a5TWBZNEkhGe0SAT_P_rRGImK5b_,http://lh4.ggpht.com/2p16wy9P_XddGSs1pmJrn6a5UE2BzsUisMUEvuvBMaLDj2ca41BDu6y0NGEL4pxvOWbsP-PRhwoVpHD-t1QWyeaQyA,http://lh5.ggpht.com/9w-4OPz5ny8tIoX7YuHH1c1HzC6R-c3MqN7RCahEMwL8WXVvfMtBjdt1qjfL5yr_ioOjBnGZuiDOeJD_XQkIt0HElpY"
             proj.main_html = "innobdesign.html"
             proj.aside_html = "innobdesign_aside.html"
             
@@ -169,6 +65,7 @@ def initializeAllProjects(request):
             post.is_project = True
             
             post.save()
+            post.parse_tags("Python,JavaScript,Node.js,Android,MySQL,v8-engine")
             proj.post = post
             
             proj.slug = "pics"
@@ -201,6 +98,7 @@ def initializeAllProjects(request):
             post.is_project = True
             
             post.save()
+            post.parse_tags("JavaScript,Dojo-Toolkit,Android,PhoneGap,HTML5,Bondi,JIL,WebOS,reStructured-Text")
             proj.post = post
             
             proj.slug = "sensor"
@@ -240,6 +138,7 @@ def initializeAllProjects(request):
             post.is_project = True
             
             post.save()
+            post.parse_tags("JavaScript,jQuery,Photoshop,Python,Django,AppEngine,Paradigm")
             proj.post = post
             
             proj.slug = "sc2meta"
@@ -254,6 +153,8 @@ def initializeAllProjects(request):
             proj.programming = True
             proj.research = False
             proj.save()
+            
+            
             
             proj = Project()
             post = blog.models.Post()
@@ -273,6 +174,7 @@ def initializeAllProjects(request):
             post.is_project = True
             
             post.save()
+            post.parse_tags("PHP,MySQL,Photoshop,JavaScript,Gaming,Clans")
             proj.post = post
             
             proj.slug = "scm"
@@ -287,6 +189,119 @@ def initializeAllProjects(request):
             proj.programming = True
             proj.research = False
             proj.save()
+            
+            
+            
+            proj = Project()
+            post = blog.models.Post()
+            
+            post.title = "Paradigm Framework"
+            post.content = '''Paradigm is a Python framework for deploying professional portfolio and blog websites to Google's AppEngine.  Currently it is a work in progress,
+                              but it has been released on GitHub as an open source project and will continue to be developed whenever I have time to devote to it.  The website that
+                              you are currently browsing is running on the Paradigm Framework.
+                            '''
+            post.content_parsed = post.content
+            post.description = post.content
+            
+            post.banner_image = ""
+            post.author = request.user.userprofile
+            
+            post.featured = True
+            post.is_project = True
+            
+            post.save()
+            post.parse_tags("Python,Django,AppEngine,Photoshop,Framework,JavaScript,jQuery,HTML5,Paradigm")
+            proj.post = post
+            
+            proj.slug = "paradigm"
+            proj.alt = proj.post.title
+            proj.date = datetime(year=2012, month=10, day=22)
+            proj.years = "2011-2012"
+            proj.images = "http://lh5.ggpht.com/XVFO8wiASrEyUkAwpH0B3L7V2ys4Q641xxTVPkXTDJzgrH2ce1TrQY7zAMzEAHWLr6TktDlMJ-g3lUFabb57ufTzow,http://lh3.ggpht.com/Y5h-75bPkv-cO9wL7JTsWhYG7umR7YAWYDNglSOIzN-fGmhp6Ibbqol90Li7hJ1hP4XgsvInYHOFNmVkHNoYV1wbIi0,http://lh5.ggpht.com/e7Std_2HVmiOuVHZObm4dywFpfkqQpcR52_KWRyyNcu6wDykyYnO_sF8HoWbYQplhnA--Rkl4H4GsnxYjMIMJoXAaA"
+            proj.main_html = "paradigm.html"
+            proj.aside_html = "paradigm_aside.html"
+            
+            proj.design = True
+            proj.programming = True
+            proj.research = False
+            proj.save()
+            
+            
+            
+            
+            proj = Project()
+            post = blog.models.Post()
+            
+            post.title = "Mandelbrot CUDA"
+            post.content = '''This project was done as the final project for CPSC 474: Computer Architecture. Roughly 1/3 of this course was dedicated to learning about parallel architectures: two of which are used extensively in this project (CUDA and OpenMP). This research was presented at Slippery Rock University's annual student research symposium.
+                            The primary focus of this research was to develop a method for generating mandelbrot fractal images using both OpenMP and CUDA and to compare different aspects of their performance. Additionally, a system for performing arbitrary precision calculations was developed and implemented on both parallel platforms.
+                            '''
+            post.content_parsed = post.content
+            post.description = post.content
+            
+            post.banner_image = ""
+            post.author = request.user.userprofile
+            
+            post.featured = True
+            post.is_project = True
+            
+            post.save()
+            post.parse_tags("C++,CUDA,OpenGL,OpenMP,Arbitrary-Precision,Fractal")
+            proj.post = post
+            
+            proj.slug = "mandelbrot"
+            proj.alt = proj.post.title
+            proj.date = datetime(year=2010, month=12, day=16)
+            proj.years = "2010"
+            proj.images = "http://lh6.ggpht.com/U-FdrS9fZhJQc8Q9FdILmPQ4xmgkMuitO1HlxJX_Yq9pXAIGKqH-lY3fb-KosuZwYYxotO0-bhY4bhuqUwRutA_HlQ"
+            proj.main_html = "mandelbrot.html"
+            proj.aside_html = "mandelbrot_aside.html"
+            
+            proj.programming = True
+            proj.research = True
+            proj.save()
+            
+            
+            
+            proj = Project()
+            post = blog.models.Post()
+            
+            post.title = "Sudoku: Optimization Through Heuristics"
+            post.content = '''This project started out as a research project that I was working on for a class but has quickly become more than that. 
+            Initially I had written a series of algorithms in C and Objective-C on the iPhone that solve sudoku puzzles using "logical" methods similar 
+            to those that a human would use. As the project progressed I decided that I wanted to make it multi-platform so I modified a http server written in 
+            Objective-C and created an XML-RPC web service to solve sudoku problems using the same code from the iPhone and serve them to any platform. With 
+            that in place I wrote a simple development environment in PHP and MySQL that can run a multitude of tests in an attempt to find more efficient ways of 
+            solving sudoku puzzles.
+                            '''
+            post.content_parsed = post.content
+            post.description = post.content
+            
+            post.banner_image = ""
+            post.author = request.user.userprofile
+            
+            post.featured = True
+            post.is_project = True
+            
+            post.save()
+            post.parse_tags("iOS,Objective-C,PHP,MySQL,Photoshop,XML-RPC,Web-Service")
+            proj.post = post
+            
+            proj.slug = "sudoku"
+            proj.alt = proj.post.title
+            proj.date = datetime(year=2009, month=9, day=25)
+            proj.years = "2009"
+            proj.images = "http://lh3.ggpht.com/iE_JegVct4YW8qmEDytYbiVyQ-olVvHeyvHVinbwQ0A12Q-j_GrytG0k3j6TWalnScq_MB9ZQ3gax8dac6w_tG4X,http://lh4.ggpht.com/0WbFloxeDTcU9ivfYcj7V2gtv_8xQIW4wBi5USX3DnP-q9JmaXBbPpwDQ6V9Wr8jL01B2rRaU6VJ8kW_h5H1ElMw,http://lh6.ggpht.com/uBEsH7yaeB36_-1iZGh8-_sQJp10h8z0BWJPTlVQFIjPjYaI7WoOrEU_3wD1zQYmr2QhZMwsRuYpgcEsAUCDZeEgVQ"
+            proj.main_html = "sudoku.html"
+            proj.aside_html = "sudoku_aside.html"
+            
+            proj.programming = True
+            proj.research = True
+            proj.design = True
+            proj.save()
+
+
+
 
 class Project(models.Model):
     
@@ -323,7 +338,7 @@ class Project(models.Model):
         
         return description'''
         
-        return strip_tags(self.post.description)
+        return self.post.getDescription
     
     def title(self):
         return self.post.title

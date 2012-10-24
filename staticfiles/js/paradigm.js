@@ -122,7 +122,7 @@ var paradigm = {
 			if(newPostfix){
 				var oldPostfix = thisSrc.match(that.postfix);
 				if( oldPostfix ){
-					console.log(oldPostfix);
+					//console.log(oldPostfix);
 					newSrc = thisSrc.replace(oldPostfix[0], newPostfix[0]);
 				} else{
 					console.error("Unable to assign new postfix to image src. Gallery image url incorrectly formed.");
@@ -133,10 +133,14 @@ var paradigm = {
 				return;
 			}
 			
+			console.log(newSrc);
 			var preload = new Image(newSrc);
-			$("#" + that.id).animate({opacity: 0}, 1000, function(){
+			$("#" + that.id).animate({opacity: 0}, 300, function(){
 				$("#" + that.id).attr('src', newSrc);
-				$("#" + that.id).animate({opacity: 1}, 500);
+				$("#" + that.id).load(function(){
+					$("#" + that.id).animate({opacity: 1}, 300);
+					$("#" + that.id).off('load');
+				});
 			});
 		});
 	}

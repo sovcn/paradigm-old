@@ -1,4 +1,6 @@
-<div class="sub_content">
+{% extends 'blog/templates/post_view.html' %}
+
+{% block post_content %}
 	<p>
 		This project started out as a research project that I was working on for a class but has 
 		quickly become more than that. Initially I had written a series of algorithms in C and 
@@ -15,15 +17,9 @@
 		the University of Hartford in West Hartford, CT.  It has also been presented at the 2010 NCHC
 		(National Collegiate Honors Council) conference in Kansas City, Missouri.
 	</p>
-</div> 
-<div class="hr"></div> 
-<div class="sub_content">
-	Some of the notable features that have been implemented are: 
-	<ul>
-		<li>XML-RPC implementation written in Objective-C</li>
-		<li>Platform independent method of solving sudoku puzzles</li>
-		<li>Research platform written in PHP built on LAMP platform</li>
-		<li>Two conference publications (both national and regional) in 2010</li>
-	</ul>
-</div>
-<div class="hr"></div>
+
+{% endblock %}
+
+{% block aside_content %}
+{{ project.getAside|safe }}
+{% endblock %}

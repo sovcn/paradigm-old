@@ -7,7 +7,7 @@
 {% block title %}{{post.title}}{% endblock %}
 {% block itemprop_name %}{{post.title}}{% endblock %}
 
-
+{% block main_description %}{{post.description|safe}}{% endblock %}
 {% block og_description %}{{post.description|safe}}{% endblock %}
 {% block itemprop_description %}{{post.description|safe}}{% endblock %}
 

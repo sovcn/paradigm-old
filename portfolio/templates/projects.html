@@ -30,9 +30,11 @@
 	<div id="portfolio_contentContainer">
 	{% block portfolio_description %}{% endblock %}
 	
+	<div class="content">
 	{% for project in projects %}
 		{{ project.post.viewMinimal }}
 	{% endfor %}
+	</div>
 	</div>
 	
 {% endblock %}

@@ -1,7 +1,7 @@
 <div class="post_minimalContainer">
 	{% if post.is_project %}
 		<div class="post_minimalLeft">
-			<img src="{{ post.project.getPrimaryImage }}=s200" alt="{{post.title}}" />
+			<a href="{{ url }}"><img src="{{ post.project.getPrimaryImage }}=s200" alt="{{post.title}}" /></a>
 		</div>
 	{% else %}
 		{% if post.image_file %}

@@ -1,14 +1,11 @@
-<div style="clear: both; overflow: hidden;">
-	<h2 class="three_quarters">Information</h2>
-	<span class="one_quarter" style="font-size: 16px">{{ project.years }}</span>
-</div>
+{% extends 'portfolio/templates/projects/aside.html' %}
 
-<p>Last updated: {{ project.displayDate }}</p>
-
+{% block aside_content %}
 <div class="content">
 	<ul>
 		<li>Fully functional plugin for Dojo framework</li>
-		<li>Complete documenation built using Sphinx and reStructured Text</li>
-		<li>Javscript API for geolocation, gccelerometer, and camera</li>
+		<li>Complete documentation built using Sphinx and reStructured Text</li>
+		<li>JavvaScript API for geolocation, accelerometer, and camera</li>
 	</ul>
 </div>
+{% endblock %}

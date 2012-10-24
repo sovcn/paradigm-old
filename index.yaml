@@ -45,3 +45,21 @@ indexes:
   - name: is_project
   - name: added
     direction: desc
+
+- kind: portfolio_project
+  properties:
+  - name: design
+  - name: date
+    direction: desc
+
+- kind: portfolio_project
+  properties:
+  - name: programming
+  - name: date
+    direction: desc
+
+- kind: portfolio_project
+  properties:
+  - name: research
+  - name: date
+    direction: desc

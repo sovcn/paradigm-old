@@ -12,9 +12,9 @@
 		<h1>Recent Activity</h1>
 		<div class="filter_container">
 			<nav>
-				<a href="" id="filter_selector_all" class="filter_item filter_selected">All</a>
-				<a href="" id="filter_selector_portfolio" class="filter_item">Portfolio</a>
-				<a href="" id="filter_selector_blog" class="filter_item">Blog</a>
+				<a href="/" id="filter_selector_all" class="filter_item filter_selected">All</a>
+				<a href="/project/list/" id="filter_selector_portfolio" class="filter_item">Portfolio</a>
+				<a href="/blog/" id="filter_selector_blog" class="filter_item">Blog</a>
 			</nav>
 			<div id="filter_selector" style="margin-left: {% block filter_selectorOffset %}20px{% endblock %};"><img src="/static/images/selector_blackSmall.png" alt="" width="8px" height="4px" /></div>
 		</div>
@@ -25,79 +25,6 @@
 	{% for proj in projects %}
 		{{ proj.displayGallery }}
 	{% endfor %}
-	<!--
-	<div class="gallery_container">
-		<div class="gallery_content">
-			<h2><a href="">Fancy Dining at the Stockpot Broiler</a></h2>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in quam ac lorem vestibulum dapibus eget sed neque. 
-				Suspendisse lacinia, ipsum eget rutrum pretium, lorem risus mollis orci, sed adipiscing dolor dolor ac turpis. 
-				Mauris ac sagittis lorem. Proin eleifend, diam id dictum laoreet, libero urna volutpat risus, quis adipiscing nibh lorem a tellus. 
-				Vestibulum nec eros tellus, nec laoreet neque. Nunc elementum viverra euismod. Vestibulum tempus, eros ac ornare porttitor, 
-				dui nisi blandit augue, vel aliquam erat est gravida eros. In ultrices pulvinar molestie. Nunc tristique ultricies bibendum. 
-				Aliquam tempus, nunc sed placerat vehicula, odio magna rhoncus nunc, id feugiat massa nisl nec leo.
-			</p>
-			<div class="gallery_botInfo">
-				<span>Saturday, September 8, 2012</span>
-				<a href="">Read More</a>
-			</div>
-		</div>
-	</div>
-	
-	<div class="gallery_container" style="background-image: url(/static/images/projects/ibd.jpg);">
-		<div class="gallery_content">
-			<h2><a href="">Innovation by Design</a></h2>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in quam ac lorem vestibulum dapibus eget sed neque. 
-				Suspendisse lacinia, ipsum eget rutrum pretium, lorem risus mollis orci, sed adipiscing dolor dolor ac turpis. 
-				Mauris ac sagittis lorem. Proin eleifend, diam id dictum laoreet, libero urna volutpat risus, quis adipiscing nibh lorem a tellus. 
-				Vestibulum nec eros tellus, nec laoreet neque. Nunc elementum viverra euismod. Vestibulum tempus, eros ac ornare porttitor, 
-				dui nisi blandit augue, vel aliquam erat est gravida eros. In ultrices pulvinar molestie. Nunc tristique ultricies bibendum. 
-				Aliquam tempus, nunc sed placerat vehicula, odio magna rhoncus nunc, id feugiat massa nisl nec leo.
-			</p>
-			<div class="gallery_botInfo">
-				<span>Saturday, September 8, 2012</span>
-				<a href="">Read More</a>
-			</div>
-		</div>
-	</div>
-	
-	<div class="gallery_container">
-		<div class="gallery_content">
-			<h2><a href="">Fancy Dining at the Stockpot Broiler</a></h2>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in quam ac lorem vestibulum dapibus eget sed neque. 
-				Suspendisse lacinia, ipsum eget rutrum pretium, lorem risus mollis orci, sed adipiscing dolor dolor ac turpis. 
-				Mauris ac sagittis lorem. Proin eleifend, diam id dictum laoreet, libero urna volutpat risus, quis adipiscing nibh lorem a tellus. 
-				Vestibulum nec eros tellus, nec laoreet neque. Nunc elementum viverra euismod. Vestibulum tempus, eros ac ornare porttitor, 
-				dui nisi blandit augue, vel aliquam erat est gravida eros. In ultrices pulvinar molestie. Nunc tristique ultricies bibendum. 
-				Aliquam tempus, nunc sed placerat vehicula, odio magna rhoncus nunc, id feugiat massa nisl nec leo.
-			</p>
-			<div class="gallery_botInfo">
-				<span>Saturday, September 8, 2012</span>
-				<a href="">Read More</a>
-			</div>
-		</div>
-	</div>
-	
-	<div class="gallery_container">
-		<div class="gallery_content">
-			<h2><a href="">Fancy Dining at the Stockpot Broiler</a></h2>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in quam ac lorem vestibulum dapibus eget sed neque. 
-				Suspendisse lacinia, ipsum eget rutrum pretium, lorem risus mollis orci, sed adipiscing dolor dolor ac turpis. 
-				Mauris ac sagittis lorem. Proin eleifend, diam id dictum laoreet, libero urna volutpat risus, quis adipiscing nibh lorem a tellus. 
-				Vestibulum nec eros tellus, nec laoreet neque. Nunc elementum viverra euismod. Vestibulum tempus, eros ac ornare porttitor, 
-				dui nisi blandit augue, vel aliquam erat est gravida eros. In ultrices pulvinar molestie. Nunc tristique ultricies bibendum. 
-				Aliquam tempus, nunc sed placerat vehicula, odio magna rhoncus nunc, id feugiat massa nisl nec leo.
-			</p>
-			<div class="gallery_botInfo">
-				<span>Saturday, September 8, 2012</span>
-				<a href="">Read More</a>
-			</div>
-		</div>
-	</div>
-	 -->
 </div>
 
 {% endblock %}
@@ -109,13 +36,13 @@ $(document).ready(function(){
 		'portfolio': 85,
 		'blog': 162
 	});
-	filter.initSelector('all', true, function(){
+	filter.initSelector('all', false, function(){
 		console.log('selected 1');
 	});
-	filter.initSelector('portfolio', true, function(){
+	filter.initSelector('portfolio', false, function(){
 		console.log('selected 2');
 	});
-	filter.initSelector('blog', true, function(){
+	filter.initSelector('blog', false, function(){
 		console.log('selected 3');
 	});
 	var initializeGallery = function(){

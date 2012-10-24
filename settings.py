@@ -70,4 +70,5 @@ STATIC_ROOT = '/staticfiles/'
 
 BLOG_IMAGE_ROOT = '/static/images/blog/'
 
-DEBUG = True
+DEBUG = False
+ENABLE_PROFILER = False

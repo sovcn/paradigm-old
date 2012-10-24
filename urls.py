@@ -34,6 +34,7 @@ urlpatterns = patterns('',
     ('^init/$', 'portfolio.views.init'),
     ('^ibd-admin/$', 'portfolio.views.admin'),
     ('^async/blog/add-category/$', 'blog.views.async_add_category'),
+    ('^reset/$', 'portfolio.views.reset'),
     ('^$', 'portfolio.views.index'),
 )
 

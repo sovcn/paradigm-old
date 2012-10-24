@@ -205,10 +205,3 @@ div.contact div span{
     font-size: 18px;
     color: #2e55a3;
 }
-
-/* Tag Cloud Styles */
-a.tag_biggest{font-size: 18px;}
-a.tag_big{font-size: 16px;}
-a.tag_medium{font-size: 14px;}
-a.tag_small{font-size: 12px;}
-a.tag_smallest{font-size: 10px;}

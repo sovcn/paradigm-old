@@ -1,0 +1,23 @@
+{% extends 'blog/templates/post_view.html' %}
+
+{% block post_content %}
+<p>
+Paradigm is a portfolio and blogging framework running on Python and Django.  The website that you are currently browsing was built using Paradigm.
+ It is designed to allow aspiring professionals 
+to create a web presence for themselves utilizing Google AppEngine's free hosting platform.  This project was originally constructed in summer 2011, and has gone through several iterations since.
+</p>
+
+<p>
+Paradigm is designed to be modular so that new functionality can easily be added on top using Django's project abstractions.  Currently it features
+two built-in models, one for managing portfolio projects, and the other is a blog engine.  I am currently actively developing this project in my free time
+and it is currently available as an open source project <a href="http://www.github.com/sovcn/paradigm">on GitHub</a>.  Currently there is no documentation or
+usage instructions available, but I have plans to add those in as the project becomes more mature.
+</p>
+<p>
+Anyone interested in collaborating on this project should send me an email at: <a href="mailto:mail@kelly-smith.me">mail@kelly-smith.me</a>.
+</p>
+{% endblock %}
+
+{% block aside_content %}
+{{ project.getAside|safe }}
+{% endblock %}

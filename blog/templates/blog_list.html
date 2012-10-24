@@ -1,10 +1,10 @@
 {% extends 'blog_base.html' %}
 
-{% block title %}Blog{% endblock %}
+{% block title %}{{title}}{% endblock %}
 
 {% block sub_left %}
 
-<h1>Blog</h1>
+<h1>{{title}}</h1>
 <div class="content">
 	{% for post in posts %}
 		{{ post.viewMinimal|safe }}

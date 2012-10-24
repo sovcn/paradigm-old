@@ -1,18 +1,17 @@
 # Create your views here.
+from django.core.cache import cache
+
 from django.shortcuts import render_to_response, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import cache_page
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 
 from portfolio.models import Project, initializeAllProjects
 from blog.models import ImageModel, Post
 
-
+@cache_page(60*60*24)
 def index(request):
-    projects = Project.objects.all()
-    for project in projects:
-        project.delete()
-    initializeAllProjects(request)
         #proj1 = Project.objects.get(slug="pics")
         #proj2 = Project.objects.get(slug="ibd")
     
@@ -39,12 +38,19 @@ def index(request):
     
     '''
     
-    projects = Project.objects.all().order_by("-date")[0:4]
+    projects = []
+    projects.append(Project.objects.filter(slug="paradigm")[0])
+    projects.append(Project.objects.filter(slug="pics")[0])
+    projects.append(Project.objects.filter(slug="sensor")[0])
+    projects.append(Project.objects.filter(slug="sudoku")[0])
+    
+    featured = Post.objects.filter(featured=True)[0]
     
     t = loader.get_template('portfolio/templates/home.html')
     c = RequestContext(request,{
         "projects": projects,
-        "page_id": "home"
+        "page_id": "home",
+        "featured": featured
     })
     return HttpResponse(t.render(c))
     
@@ -63,6 +69,17 @@ def init(request):
     return index(request)
 
 @login_required
+def reset(request):
+    projects = Project.objects.all()
+    for project in projects:
+        project.delete()
+    initializeAllProjects(request)
+    
+    cache.clear()
+    
+    return HttpResponseRedirect('/') # Redirect after Reset
+
+@login_required
 def admin(request):
     t = loader.get_template('portfolio/templates/admin.html')
     c = RequestContext(request,{
@@ -79,16 +96,18 @@ def project_view(request, slug):
         "post": project.post,
         "project": project,
         "images": images,
+        "page_id": "portfolio",
         "is_project": True,
         "tags": project.post.get_tags()
     })
     
     return HttpResponse(t.render(c))
-    
+
+@cache_page(60*60*24)
 def projects(request, projects=None):
     
     if not projects:
-        projects = Project.objects.all().order_by("-date") 
+        projects = Project.objects.all().order_by("-date")
     
     t = loader.get_template('portfolio/templates/projects.html')
     
@@ -101,8 +120,9 @@ def projects(request, projects=None):
     
     return HttpResponse(t.render(c))
 
+@cache_page(60*60*24)
 def projects_programming(request):
-    projects = Project.objects.filter(programming=True)
+    projects = Project.objects.filter(programming=True).order_by("-date")
     
     t = loader.get_template('portfolio/templates/projects_programming.html')
     
@@ -114,9 +134,10 @@ def projects_programming(request):
     })
     
     return HttpResponse(t.render(c))
-    
+
+@cache_page(60*60*24) 
 def projects_web_design(request):
-    projects = Project.objects.filter(design=True)
+    projects = Project.objects.filter(design=True).order_by("-date") 
     t = loader.get_template('portfolio/templates/projects_web_design.html')
     
     c = RequestContext(request,{
@@ -128,8 +149,9 @@ def projects_web_design(request):
     
     return HttpResponse(t.render(c))
 
+@cache_page(60*60*24)
 def projects_research(request):
-    projects = Project.objects.filter(research=True)
+    projects = Project.objects.filter(research=True).order_by("-date") 
     t = loader.get_template('portfolio/templates/projects_research.html')
     
     c = RequestContext(request,{

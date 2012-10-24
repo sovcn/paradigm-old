@@ -7,11 +7,11 @@
 {% block title %}{{post.title}}{% endblock %}
 {% block itemprop_name %}{{post.title}}{% endblock %}
 
+{% block main_description %}{{post.getDescription|safe}}{% endblock %}
+{% block og_description %}{{post.getDescription|safe}}{% endblock %}
+{% block itemprop_description %}{{post.getDescription|safe}}{% endblock %}
 
-{% block og_description %}{{post.description|safe}}{% endblock %}
-{% block itemprop_description %}{{post.description|safe}}{% endblock %}
-
-{% block og_image %}{{ post.getFirstImage }}=s200{% endblock %}
+{% block og_image %}{{ post.getFirstImage }}{%if post.is_project%}=s200{%endif%}{% endblock %}
 
 {% block page_id %}portfolio{% endblock %}
 
@@ -59,7 +59,6 @@
 					<img style="max-width: 100px" src="http://lh4.ggpht.com/YKdYpsV2e9htKUHQ5oCYtXnsjZoqEQ9h5C1H0j1DDjvOaCtxwWGRh93ZLJVClygT3WTjgb-EunMxCSLF9yGiptt2RA=s150" itemprop="image" alt="Profile Picture" />
 				</p>
 				<p class="contactInformation">
-					<span itemprop="telephone">(724) 372-1425</span><br />
 					<a href="mailto:mail@kelly-smith.me" itemprop="email">mail@kelly-smith.me</a><br />
 					<span itemprop="addressLocality">Portland</span>, <span itemprop="addressRegion">Oregon</span>
 				</p>
@@ -72,7 +71,7 @@
 		<p>{{ candy_trail|safe }}</p>
 	{% endif %}
 	<h1>{{ post.title }}</h1>
-	<div class="post_tagBar">{% if is_project %}Tools: {% for tag in post.get_tags %}<a href="/blog/tag/{{tag}}/">{{tag}}</a> {% endfor %}{% endif %}</div>
+	<div class="post_tagBar">{% if is_project %}Tools: {{ post.tagLinkCSV|safe }}{% endif %}</div>
 	{% block post_content %}
 		{{ post.content_parsed|safe }}
 	{% endblock %}
